@@ -79,19 +79,28 @@
 
 
 
-<meta name="description" content="welcome 侯先生：  你是小可爱的第一个访客哟。 爱你(＾Ｕ＾)ノ~ＹＯ">
+<meta name="description" content="RNN的梯度下降&amp;amp;使用GRUcategories:neural-network  basic  长期的依赖关系：前面的单词，对句子后面的单词有影响。RNN不擅长捕获这种长期的关系，层数很深的时候，反向传播，后面层的输出误差，很难影响前面层的权重。梯度爆炸很容易发现，你的参数会随着指数增加。（解决办法：梯度修剪，观察你的梯度向量，如果他高于某个数值，就缩放梯度向量）但是梯度消失很难解决。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="don&#39;t look">
-<meta property="og:url" content="http://yoursite.com/2019/09/15/私密/For Mr.Hou/index.html">
+<meta property="og:title" content="丑小鸭的栖息地">
+<meta property="og:url" content="http://yoursite.com/2019/09/29/网易云学习/RNN的梯度下降and使用GRU/index.html">
 <meta property="og:site_name" content="丑小鸭的栖息地">
-<meta property="og:description" content="welcome 侯先生：  你是小可爱的第一个访客哟。 爱你(＾Ｕ＾)ノ~ＹＯ">
+<meta property="og:description" content="RNN的梯度下降&amp;amp;使用GRUcategories:neural-network  basic  长期的依赖关系：前面的单词，对句子后面的单词有影响。RNN不擅长捕获这种长期的关系，层数很深的时候，反向传播，后面层的输出误差，很难影响前面层的权重。梯度爆炸很容易发现，你的参数会随着指数增加。（解决办法：梯度修剪，观察你的梯度向量，如果他高于某个数值，就缩放梯度向量）但是梯度消失很难解决。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190913183216323.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-09-25T08:29:39.435Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190929110559646.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190929110615150.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190929110623738.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190929110634338.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019092911064375.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190929110652701.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190929110700873.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190929110711422.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190929110739291.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190929110752651.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-09-29T03:15:32.288Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="don&#39;t look">
-<meta name="twitter:description" content="welcome 侯先生：  你是小可爱的第一个访客哟。 爱你(＾Ｕ＾)ノ~ＹＯ">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190913183216323.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70">
+<meta name="twitter:title" content="丑小鸭的栖息地">
+<meta name="twitter:description" content="RNN的梯度下降&amp;amp;使用GRUcategories:neural-network  basic  长期的依赖关系：前面的单词，对句子后面的单词有影响。RNN不擅长捕获这种长期的关系，层数很深的时候，反向传播，后面层的输出误差，很难影响前面层的权重。梯度爆炸很容易发现，你的参数会随着指数增加。（解决办法：梯度修剪，观察你的梯度向量，如果他高于某个数值，就缩放梯度向量）但是梯度消失很难解决。">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190929110559646.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70">
 
 
 
@@ -121,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/09/15/私密/For Mr.Hou/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/29/网易云学习/RNN的梯度下降and使用GRU/">
 
 
 
 
 
-  <title>don't look | 丑小鸭的栖息地</title>
+  <title> | 丑小鸭的栖息地</title>
   
 
 
@@ -244,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/15/私密/For Mr.Hou/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/29/网易云学习/RNN的梯度下降and使用GRU/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chengxiaoyun">
@@ -261,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">don't look</h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -273,8 +282,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-15T16:45:28+08:00">
-                2019-09-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-29T11:07:57+08:00">
+                2019-09-29
               </time>
             
 
@@ -283,28 +292,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hou/" itemprop="url" rel="index">
-                    <span itemprop="name">hou</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -333,12 +320,19 @@
       
 
       
-        <p><strong>welcome 侯先生：</strong></p>
-<ul>
-<li><p>你是小可爱的第一个访客哟。</p>
-<p>爱你(＾Ｕ＾)ノ~ＹＯ<img src="https://img-blog.csdnimg.cn/20190913183216323.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</li>
-</ul>
+        <hr>
+<p>RNN的梯度下降&amp;使用GRU<br>categories:neural-network  basic</p>
+<hr>
+<p>长期的依赖关系：前面的单词，对句子后面的单词有影响。<br>RNN不擅长捕获这种长期的关系，<br>层数很深的时候，反向传播，后面层的输出误差，很难影响前面层的权重。<br>梯度爆炸很容易发现，你的参数会随着指数增加。（解决办法：梯度修剪，观察你的梯度向量，如果他高于某个数值，就缩放梯度向量）<br>但是梯度消失很难解决。</p>
+<p>GRU：门控循环控制单元<br>能够解决梯度消失问题，捕获长期依赖关系。</p>
+<p>RNN隐藏层的可视化：<br><img src="https://img-blog.csdnimg.cn/20190929110559646.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>上一个时间步的激活值和当前的x输入一起输入一个激活函数tanh，b是当前的偏差值，计算出激活值a，然后输入一个softmax之类的函数，得到y。</p>
+<p>GRU单元：<br>有个新的变量c记忆细胞，<br>对于GRU<br><img src="https://img-blog.csdnimg.cn/20190929110615150.png" alt="在这里插入图片描述"><br>计算激活值的函数：这是一个候选值，即c<t>的值<br><img src="https://img-blog.csdnimg.cn/20190929110623738.png" alt="在这里插入图片描述"><br>GRU有一个更新门，数值在0-1之间，就是把计算激活值得函数带入sigmoid函数。<br><img src="https://img-blog.csdnimg.cn/20190929110634338.png" alt="在这里插入图片描述"><br>门来决定是否要真的更新。<br>门的值 乘以 候选值 加 （1 减去门的值）乘旧的值<br><img src="https://img-blog.csdnimg.cn/2019092911064375.png" alt="在这里插入图片描述"><br>如果不需要更新就把门的值记为0，就是继续使用旧的值。需要更新就置为1，使用候选值。<br>比如下图，根据cat的单复数影响后面的was还是were。当遇到cat的时候门的值为1。然后后面的单元 which already什么的都是0。<br>c不更新，但是他一直记得cat是单数还是复数。</t></p>
+<p><img src="https://img-blog.csdnimg.cn/20190929110652701.png" alt="在这里插入图片描述"><br>GRU的门控单元<br><img src="https://img-blog.csdnimg.cn/20190929110700873.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>其中紫色阴影部分就是这个公式：<br><img src="https://img-blog.csdnimg.cn/20190929110711422.png" alt="在这里插入图片描述"></p>
+<p>GRU的优点就是，通过门决定，当你从左到右扫描这个句子的时候，是否要更新记忆单元，不更新直到你真的需要使用记忆细胞的时候。<br>因为门值很接近0，c<t>很接近c<t-1>，c的值很好地被维持了，即使经过很多层。这就是缓解梯度下降。</t-1></t></p>
+<p>GRU单元三个重要的公式：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190929110739291.png" alt="在这里插入图片描述">是候选值，中间加一个 门控值 来告诉我们计算出下一个c值和上一个的相关性有多大（比如was were和cat、cats关联大）</p>
+<p><img src="https://img-blog.csdnimg.cn/20190929110752651.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 
       
     </div>
@@ -363,8 +357,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/13/使用hexo搭建博客并上传到github/" rel="next" title="使用hexo搭建博客并上传到github">
-                <i class="fa fa-chevron-left"></i> 使用hexo搭建博客并上传到github
+              <a href="/2019/09/29/网易云学习/神经网络基本结构and语言模型的构建/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -373,8 +367,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/09/15/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
+              <a href="/2019/09/29/网易云学习/Attention机制/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

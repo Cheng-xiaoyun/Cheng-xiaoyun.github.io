@@ -79,19 +79,17 @@
 
 
 
-<meta name="description" content="welcome 侯先生：  你是小可爱的第一个访客哟。 爱你(＾Ｕ＾)ノ~ＹＯ">
+<meta name="description" content="Attention机制 categories:neural-network  basicAttention机制其实就是一系列注意力分配系数，也就是一系列权重参数罢了。 注意力模型就是要从序列中学习到每一个元素的重要程度，然后按重要程度将元素合并。  换一个角度来理解，我们将attention机制看做软寻址。就是说序列中每一个元素都由key(地址)和value(元素)数据对存储在存储器里，当有qu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="don&#39;t look">
-<meta property="og:url" content="http://yoursite.com/2019/09/15/私密/For Mr.Hou/index.html">
+<meta property="og:title" content="丑小鸭的栖息地">
+<meta property="og:url" content="http://yoursite.com/2019/09/29/网易云学习/Attention机制/index.html">
 <meta property="og:site_name" content="丑小鸭的栖息地">
-<meta property="og:description" content="welcome 侯先生：  你是小可爱的第一个访客哟。 爱你(＾Ｕ＾)ノ~ＹＯ">
+<meta property="og:description" content="Attention机制 categories:neural-network  basicAttention机制其实就是一系列注意力分配系数，也就是一系列权重参数罢了。 注意力模型就是要从序列中学习到每一个元素的重要程度，然后按重要程度将元素合并。  换一个角度来理解，我们将attention机制看做软寻址。就是说序列中每一个元素都由key(地址)和value(元素)数据对存储在存储器里，当有qu">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190913183216323.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-09-25T08:29:39.435Z">
+<meta property="og:updated_time" content="2019-09-29T03:15:26.525Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="don&#39;t look">
-<meta name="twitter:description" content="welcome 侯先生：  你是小可爱的第一个访客哟。 爱你(＾Ｕ＾)ノ~ＹＯ">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190913183216323.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70">
+<meta name="twitter:title" content="丑小鸭的栖息地">
+<meta name="twitter:description" content="Attention机制 categories:neural-network  basicAttention机制其实就是一系列注意力分配系数，也就是一系列权重参数罢了。 注意力模型就是要从序列中学习到每一个元素的重要程度，然后按重要程度将元素合并。  换一个角度来理解，我们将attention机制看做软寻址。就是说序列中每一个元素都由key(地址)和value(元素)数据对存储在存储器里，当有qu">
 
 
 
@@ -121,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/09/15/私密/For Mr.Hou/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/29/网易云学习/Attention机制/">
 
 
 
 
 
-  <title>don't look | 丑小鸭的栖息地</title>
+  <title> | 丑小鸭的栖息地</title>
   
 
 
@@ -244,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/15/私密/For Mr.Hou/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/29/网易云学习/Attention机制/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chengxiaoyun">
@@ -261,7 +259,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">don't look</h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -273,8 +271,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-15T16:45:28+08:00">
-                2019-09-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-29T11:09:41+08:00">
+                2019-09-29
               </time>
             
 
@@ -283,28 +281,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hou/" itemprop="url" rel="index">
-                    <span itemprop="name">hou</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -333,12 +309,16 @@
       
 
       
-        <p><strong>welcome 侯先生：</strong></p>
-<ul>
-<li><p>你是小可爱的第一个访客哟。</p>
-<p>爱你(＾Ｕ＾)ノ~ＹＯ<img src="https://img-blog.csdnimg.cn/20190913183216323.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</li>
-</ul>
+        <hr>
+<p>Attention机制</p>
+<h2 id="categories-neural-network-basic"><a href="#categories-neural-network-basic" class="headerlink" title="categories:neural-network  basic"></a>categories:neural-network  basic</h2><p>Attention机制其实就是一系列注意力分配系数，也就是一系列权重参数罢了。</p>
+<p>注意力模型就是要从序列中学习到每一个元素的重要程度，然后按重要程度将元素合并。 </p>
+<p>换一个角度来理解，我们将attention机制看做软寻址。就是说序列中每一个元素都由key(地址)和value(元素)数据对存储在存储器里，当有query=key的查询时，需要取出元素的value值(也即query查询的attention值)，与传统的寻址不一样，它不是按照地址取出值的，它是通过计算key与query的相似度来完成寻址。这就是所谓的软寻址，它可能会把所有地址(key)的值(value)取出来，上步计算出的相似度决定了取出来值的重要程度，然后按重要程度合并value值得到attention值，此处的合并指的是加权求和。</p>
+<p>优点:<br>一步到位的全局联系捕捉</p>
+<p>上文说了一些，attention机制可以灵活的捕捉全局和局部的联系，而且是一步到位的。另一方面从attention函数就可以看出来，它先是进行序列的每一个元素与其他元素的对比，在这个过程中每一个元素间的距离都是一，因此它比时间序列RNNs的一步步递推得到长期依赖关系好的多，越长的序列RNNs捕捉长期依赖关系就越弱。<br>并行计算减少模型训练时间</p>
+<p>Attention机制每一步计算不依赖于上一步的计算结果，因此可以和CNN一样并行处理。但是CNN也只是每次捕捉局部信息，通过层叠来获取全局的联系增强视野。</p>
+<p>缺点:<br>缺点很明显，attention机制不是一个”distance-aware”的，它不能捕捉语序顺序(这里是语序哦，就是元素的顺序)。这在NLP中是比较糟糕的，自然语言的语序是包含太多的信息。如果确实了这方面的信息，结果往往会是打折扣的。说到底，attention机制就是一个精致的”词袋”模型。所以有时候我就在想，在NLP任务中，我把分词向量化后计算一波TF-IDF是不是会和这种attention机制取得一样的效果呢? 当然这个缺点也好搞定，我在添加位置信息就好了。所以就有了 position-embedding(位置向量)的概念了，这里就不细说了。</p>
+<p>Attention机制说大了就一句话，分配权重系数。</p>
 
       
     </div>
@@ -363,8 +343,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/13/使用hexo搭建博客并上传到github/" rel="next" title="使用hexo搭建博客并上传到github">
-                <i class="fa fa-chevron-left"></i> 使用hexo搭建博客并上传到github
+              <a href="/2019/09/29/网易云学习/RNN的梯度下降and使用GRU/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -372,10 +352,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/15/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -427,8 +403,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -481,6 +466,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#categories-neural-network-basic"><span class="nav-number">1.</span> <span class="nav-text">categories:neural-network  basic</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
