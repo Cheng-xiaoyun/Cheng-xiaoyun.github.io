@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="RNN的梯度下降&amp;amp;使用GRUcategories:neural-network  basic  长期的依赖关系：前面的单词，对句子后面的单词有影响。RNN不擅长捕获这种长期的关系，层数很深的时候，反向传播，后面层的输出误差，很难影响前面层的权重。梯度爆炸很容易发现，你的参数会随着指数增加。（解决办法：梯度修剪，观察你的梯度向量，如果他高于某个数值，就缩放梯度向量）但是梯度消失很难解决。">
+<meta name="description" content="长期的依赖关系：前面的单词，对句子后面的单词有影响。RNN不擅长捕获这种长期的关系，层数很深的时候，反向传播，后面层的输出误差，很难影响前面层的权重。梯度爆炸很容易发现，你的参数会随着指数增加。（解决办法：梯度修剪，观察你的梯度向量，如果他高于某个数值，就缩放梯度向量）但是梯度消失很难解决。 GRU：门控循环控制单元能够解决梯度消失问题，捕获长期依赖关系。 RNN隐藏层的可视化： 上一个时间步的激">
 <meta property="og:type" content="article">
-<meta property="og:title" content="丑小鸭的栖息地">
+<meta property="og:title" content="RNN的梯度下降&amp;使用GRU">
 <meta property="og:url" content="http://yoursite.com/2019/09/29/网易云学习/RNN的梯度下降and使用GRU/index.html">
 <meta property="og:site_name" content="丑小鸭的栖息地">
-<meta property="og:description" content="RNN的梯度下降&amp;amp;使用GRUcategories:neural-network  basic  长期的依赖关系：前面的单词，对句子后面的单词有影响。RNN不擅长捕获这种长期的关系，层数很深的时候，反向传播，后面层的输出误差，很难影响前面层的权重。梯度爆炸很容易发现，你的参数会随着指数增加。（解决办法：梯度修剪，观察你的梯度向量，如果他高于某个数值，就缩放梯度向量）但是梯度消失很难解决。">
+<meta property="og:description" content="长期的依赖关系：前面的单词，对句子后面的单词有影响。RNN不擅长捕获这种长期的关系，层数很深的时候，反向传播，后面层的输出误差，很难影响前面层的权重。梯度爆炸很容易发现，你的参数会随着指数增加。（解决办法：梯度修剪，观察你的梯度向量，如果他高于某个数值，就缩放梯度向量）但是梯度消失很难解决。 GRU：门控循环控制单元能够解决梯度消失问题，捕获长期依赖关系。 RNN隐藏层的可视化： 上一个时间步的激">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190929110559646.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190929110615150.png">
@@ -96,10 +96,10 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190929110711422.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190929110739291.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190929110752651.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-09-29T03:15:32.288Z">
+<meta property="og:updated_time" content="2019-09-29T03:20:18.423Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="丑小鸭的栖息地">
-<meta name="twitter:description" content="RNN的梯度下降&amp;amp;使用GRUcategories:neural-network  basic  长期的依赖关系：前面的单词，对句子后面的单词有影响。RNN不擅长捕获这种长期的关系，层数很深的时候，反向传播，后面层的输出误差，很难影响前面层的权重。梯度爆炸很容易发现，你的参数会随着指数增加。（解决办法：梯度修剪，观察你的梯度向量，如果他高于某个数值，就缩放梯度向量）但是梯度消失很难解决。">
+<meta name="twitter:title" content="RNN的梯度下降&amp;使用GRU">
+<meta name="twitter:description" content="长期的依赖关系：前面的单词，对句子后面的单词有影响。RNN不擅长捕获这种长期的关系，层数很深的时候，反向传播，后面层的输出误差，很难影响前面层的权重。梯度爆炸很容易发现，你的参数会随着指数增加。（解决办法：梯度修剪，观察你的梯度向量，如果他高于某个数值，就缩放梯度向量）但是梯度消失很难解决。 GRU：门控循环控制单元能够解决梯度消失问题，捕获长期依赖关系。 RNN隐藏层的可视化： 上一个时间步的激">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190929110559646.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70">
 
 
@@ -136,7 +136,7 @@
 
 
 
-  <title> | 丑小鸭的栖息地</title>
+  <title>RNN的梯度下降&使用GRU | 丑小鸭的栖息地</title>
   
 
 
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">RNN的梯度下降&使用GRU</h1>
         
 
         <div class="post-meta">
@@ -292,6 +292,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nn-basic/" itemprop="url" rel="index">
+                    <span itemprop="name">nn basic</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -320,10 +342,7 @@
       
 
       
-        <hr>
-<p>RNN的梯度下降&amp;使用GRU<br>categories:neural-network  basic</p>
-<hr>
-<p>长期的依赖关系：前面的单词，对句子后面的单词有影响。<br>RNN不擅长捕获这种长期的关系，<br>层数很深的时候，反向传播，后面层的输出误差，很难影响前面层的权重。<br>梯度爆炸很容易发现，你的参数会随着指数增加。（解决办法：梯度修剪，观察你的梯度向量，如果他高于某个数值，就缩放梯度向量）<br>但是梯度消失很难解决。</p>
+        <p>长期的依赖关系：前面的单词，对句子后面的单词有影响。<br>RNN不擅长捕获这种长期的关系，<br>层数很深的时候，反向传播，后面层的输出误差，很难影响前面层的权重。<br>梯度爆炸很容易发现，你的参数会随着指数增加。（解决办法：梯度修剪，观察你的梯度向量，如果他高于某个数值，就缩放梯度向量）<br>但是梯度消失很难解决。</p>
 <p>GRU：门控循环控制单元<br>能够解决梯度消失问题，捕获长期依赖关系。</p>
 <p>RNN隐藏层的可视化：<br><img src="https://img-blog.csdnimg.cn/20190929110559646.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <p>上一个时间步的激活值和当前的x输入一起输入一个激活函数tanh，b是当前的偏差值，计算出激活值a，然后输入一个softmax之类的函数，得到y。</p>
@@ -357,8 +376,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/29/网易云学习/神经网络基本结构and语言模型的构建/" rel="next" title>
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2019/09/29/网易云学习/神经网络基本结构and语言模型的构建/" rel="next" title="神经网络基本结构&语言模型的构建">
+                <i class="fa fa-chevron-left"></i> 神经网络基本结构&语言模型的构建
               </a>
             
           </div>
@@ -367,8 +386,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/09/29/网易云学习/Attention机制/" rel="prev" title>
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/09/29/网易云学习/Attention机制/" rel="prev" title="Attention机制">
+                Attention机制 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -450,7 +469,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

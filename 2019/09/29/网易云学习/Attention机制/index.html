@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Attention机制 categories:neural-network  basicAttention机制其实就是一系列注意力分配系数，也就是一系列权重参数罢了。 注意力模型就是要从序列中学习到每一个元素的重要程度，然后按重要程度将元素合并。  换一个角度来理解，我们将attention机制看做软寻址。就是说序列中每一个元素都由key(地址)和value(元素)数据对存储在存储器里，当有qu">
+<meta name="description" content="Attention机制其实就是一系列注意力分配系数，也就是一系列权重参数罢了。 注意力模型就是要从序列中学习到每一个元素的重要程度，然后按重要程度将元素合并。  换一个角度来理解，我们将attention机制看做软寻址。就是说序列中每一个元素都由key(地址)和value(元素)数据对存储在存储器里，当有query=key的查询时，需要取出元素的value值(也即query查询的attention">
 <meta property="og:type" content="article">
-<meta property="og:title" content="丑小鸭的栖息地">
+<meta property="og:title" content="Attention机制">
 <meta property="og:url" content="http://yoursite.com/2019/09/29/网易云学习/Attention机制/index.html">
 <meta property="og:site_name" content="丑小鸭的栖息地">
-<meta property="og:description" content="Attention机制 categories:neural-network  basicAttention机制其实就是一系列注意力分配系数，也就是一系列权重参数罢了。 注意力模型就是要从序列中学习到每一个元素的重要程度，然后按重要程度将元素合并。  换一个角度来理解，我们将attention机制看做软寻址。就是说序列中每一个元素都由key(地址)和value(元素)数据对存储在存储器里，当有qu">
+<meta property="og:description" content="Attention机制其实就是一系列注意力分配系数，也就是一系列权重参数罢了。 注意力模型就是要从序列中学习到每一个元素的重要程度，然后按重要程度将元素合并。  换一个角度来理解，我们将attention机制看做软寻址。就是说序列中每一个元素都由key(地址)和value(元素)数据对存储在存储器里，当有query=key的查询时，需要取出元素的value值(也即query查询的attention">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-29T03:15:26.525Z">
+<meta property="og:updated_time" content="2019-09-29T03:20:11.259Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="丑小鸭的栖息地">
-<meta name="twitter:description" content="Attention机制 categories:neural-network  basicAttention机制其实就是一系列注意力分配系数，也就是一系列权重参数罢了。 注意力模型就是要从序列中学习到每一个元素的重要程度，然后按重要程度将元素合并。  换一个角度来理解，我们将attention机制看做软寻址。就是说序列中每一个元素都由key(地址)和value(元素)数据对存储在存储器里，当有qu">
+<meta name="twitter:title" content="Attention机制">
+<meta name="twitter:description" content="Attention机制其实就是一系列注意力分配系数，也就是一系列权重参数罢了。 注意力模型就是要从序列中学习到每一个元素的重要程度，然后按重要程度将元素合并。  换一个角度来理解，我们将attention机制看做软寻址。就是说序列中每一个元素都由key(地址)和value(元素)数据对存储在存储器里，当有query=key的查询时，需要取出元素的value值(也即query查询的attention">
 
 
 
@@ -125,7 +125,7 @@
 
 
 
-  <title> | 丑小鸭的栖息地</title>
+  <title>Attention机制 | 丑小鸭的栖息地</title>
   
 
 
@@ -259,7 +259,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">Attention机制</h1>
         
 
         <div class="post-meta">
@@ -281,6 +281,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nn-basic/" itemprop="url" rel="index">
+                    <span itemprop="name">nn basic</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -309,9 +331,7 @@
       
 
       
-        <hr>
-<p>Attention机制</p>
-<h2 id="categories-neural-network-basic"><a href="#categories-neural-network-basic" class="headerlink" title="categories:neural-network  basic"></a>categories:neural-network  basic</h2><p>Attention机制其实就是一系列注意力分配系数，也就是一系列权重参数罢了。</p>
+        <p>Attention机制其实就是一系列注意力分配系数，也就是一系列权重参数罢了。</p>
 <p>注意力模型就是要从序列中学习到每一个元素的重要程度，然后按重要程度将元素合并。 </p>
 <p>换一个角度来理解，我们将attention机制看做软寻址。就是说序列中每一个元素都由key(地址)和value(元素)数据对存储在存储器里，当有query=key的查询时，需要取出元素的value值(也即query查询的attention值)，与传统的寻址不一样，它不是按照地址取出值的，它是通过计算key与query的相似度来完成寻址。这就是所谓的软寻址，它可能会把所有地址(key)的值(value)取出来，上步计算出的相似度决定了取出来值的重要程度，然后按重要程度合并value值得到attention值，此处的合并指的是加权求和。</p>
 <p>优点:<br>一步到位的全局联系捕捉</p>
@@ -343,8 +363,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/29/网易云学习/RNN的梯度下降and使用GRU/" rel="next" title>
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2019/09/29/网易云学习/RNN的梯度下降and使用GRU/" rel="next" title="RNN的梯度下降&使用GRU">
+                <i class="fa fa-chevron-left"></i> RNN的梯度下降&使用GRU
               </a>
             
           </div>
@@ -403,17 +423,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -441,7 +452,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -466,22 +477,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#categories-neural-network-basic"><span class="nav-number">1.</span> <span class="nav-text">categories:neural-network  basic</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
