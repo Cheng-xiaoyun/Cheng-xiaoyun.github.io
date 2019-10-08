@@ -239,6 +239,1203 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/08/暑假笔记/2019-7-24/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chengxiaoyun">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="丑小鸭的栖息地">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/08/暑假笔记/2019-7-24/" itemprop="url">2019-7-24</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-08T11:49:47+08:00">
+                2019-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/暑假培训/" itemprop="url" rel="index">
+                    <span itemprop="name">暑假培训</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>经典序列标注任务<br>自然语言任务：分类任务、结果学习任务。<br>词性标注：我（名词） 家 养（动词） 了 只（量词） 猫。标签之间也是有依赖关系的，比如名词后面经常跟动词。</p>
+<p>【分词】<br>中文、日语词语词之间是没有间隔的。把分词转换为序列标注问题<br>例子一：“天津大学新校区位于津南区” 进行分词<br>几种分词标签：①Single就是单个标签，比如“猫”②Begin比如“天津大学”③Middle“津大”④End。<br>“小 明 家 养 了 一 只 猫”<br>“B  E  S  B  E  B  E  S”<br>标签之间有一些依赖和限制，比如S不可能接M或者E。<br>通常是在LSTM接一个CRF用来解决标签之间相互转换为关系。比如要对“天津大学新校区位于津南区”进行分词，CRF模型对词进行打分，比如“南”这个字被预测为B E M S的概率。对于“津”的标签预测是和“南”字有关联的，所以在对“津”打分的时候，分为两部分，第一部分是这个字被预测为B E M S的概率，另一部分是前一个词“南”被。<br>求解空间是4的n次方，n是这句话有几个字，每个词被预测为4种标签的概率。假如每个字之间没有任何依赖关系，想得到最好的预测，最优子结果不仅包括每个词的预测，还有每个词之间的联系也就是边的值。<br>怎么做训练：</p>
+<p>【补充】<br>Shape属性。查看矩阵或者数组的维数，shape[0] 为第一维的长度，shape[1] 为第二维的长度<br>Reshape()函数重新定义了原张量的阶数：给数组一个新的形状而不改变其数据。通过reshape生成的新数组和原始数组公用一个内存，也就是说，假如更改一个数组的元素，另一个数组也将发生改变 。</p>
+<p>a=np.array([1,2,3,4,5,6,7,8,9,10,11,12])<br>b=np.reshape(a,(2,-1))<br>c=np.reshape(a,(2,2,-1))<br>d=np.reshape(a,(2,3,-1))<br>b=<br>[[ 1  2  3  4  5  6]<br> [ 7  8  9  10 11 12]]<br>c=<br>[[[ 1  2  3]<br>  [ 4  5  6]]</p>
+<p> [[ 7  8  9]<br>  [10 11 12]]]<br>d=<br>[[[ 1  2]<br>  [ 3  4]<br>  [ 5  6]]</p>
+<p> [[ 7  8]<br>  [ 9 10]<br>  [11 12]]]</p>
+<p>Squeeze<br>Unsqueeze<br>Size（）</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/08/暑假笔记/2019-7-23/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chengxiaoyun">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="丑小鸭的栖息地">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/08/暑假笔记/2019-7-23/" itemprop="url">2019-7-23</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-08T11:49:17+08:00">
+                2019-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/暑假培训/" itemprop="url" rel="index">
+                    <span itemprop="name">暑假培训</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>常见文本关系：<br>文本蕴涵（有方向性，侧重在语义，A推出B，B退不出A）、文本相似（文本字面结构上的相似，不是说语义）、文本复述（文本蕴涵的一种特殊情况，A能推出B ，B能推出A）、逻辑推理（侧重在逻辑方面，文本蕴涵侧重在语义方面）</p>
+<p>自然语言的一些任务，任务之一文本蕴涵：<br>【一】文本蕴涵（判断两个句子）三种叫法<br>STS semantic sentence similarity 判断两个句子语义相似性<br>RTE 判断两个句子，一个包含另外一个<br>NLI 两个句子，一个前提一个假设，能否通过一个推出另外一个<br>【二】文本蕴涵的三种标签<br>Entailment蕴含关系：意思相同，A推出B，<br>Neural 中性关系：没有任何关系<br>Contradiction反对关系：意义相反，矛盾<br>【三】文本蕴涵应用场景<br>①问答<br>②信息检索<br>③关系识别<br>④知识获取<br>⑤蕴含对生成<br>【四】文本蕴涵任务里面公开的数据集（都是英文的）<br>MSRP 从一些新闻文章中提取的数据集，里面有很多复杂的语义。<br>Quora 本质上是一个知识分享网站，所有的句子都是一个问题，然后判断这两个问题的关系。<br>SICK   在一个网站上发表一些任务，然后各界人来做标注。<br>SNLI   人工书写的英语子对集合。数据集很大。<br>Scitall 有一个问题，多个选项，选择一个正确答案，然后转换为断言陈述。<br>【五】方法<br>TF-IDF 判断两句话的相关性<br>ESIM模型：有两种（双向LSTM、基于树的LSTM）<br>【六】特征<br>词频特征、词嵌入特征</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/08/暑假笔记/2019-7-22/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chengxiaoyun">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="丑小鸭的栖息地">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/08/暑假笔记/2019-7-22/" itemprop="url">2019-7-22</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-08T11:48:57+08:00">
+                2019-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/暑假培训/" itemprop="url" rel="index">
+                    <span itemprop="name">暑假培训</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>张老师：<br>【一】<br>Embedding就是一个表，包含词和索引。<br>每次查表，找对应词的向量表示，就是一个operation。<br>不管函数多复杂，总是可以通过分解为一些原子操作，比如查表、线性变化、<br>三种基本运算：<br>①Embedding<br>②Wx<br>③w——x——h——RNN（pooling）——hp——wx（分类、线性变化）<br>整个预测，本质上就是一个函数MLP—pooling—BMLP—MLP—embedding。把这个函数打开，就像是一个图，按照图的拓扑顺序。<br>深度学习就是一个复合函数，为每个原子（节点）定义一个input——forward——output——backward——input。<br>整个神经网络就是模仿一个复合函数。<br>机器学习怎么来：<br>目标函数怎么定义：交叉熵。熵越大损失越大。<br>优化损失值：梯度下降。要把损失往回传，<br>定义好MLP的偏导，就是backward，然后沿着拓扑反方向一层一层往前求。复合函数求导就是深度学习的根基。<br>如果自己不写网络都不需要管backward。<br>Forward：Y=wx+b<br>Backward：求导</p>
+<p>LSTM、RNN不能并行计算因为每一步都与前面有关联，但是Transform可以并行计算。<br>Op的概念：每个op都有forward、backward。<br>拓扑的概念：每个句子是一棵树，但是多个句子就是图，并行一定要高。<br>优化的概念：不搞机器学习都不用管。</p>
+<p>哪些工作取决于编码能力。<br>【二】<br>性能好：①模型本身；②输入有多丰富。<br>词向量获取Pre trainning<br>语言模型任务：通过“我 喜欢 * 苹果”预测“吃”这个词。这样的语料无穷无尽，任何一个合理的句子都会提供一个语料。选取高频的词。最简单的词向量模型CBow，就是一个分类问题，难点就是预测。预训练的语调要够大。<br>Skipgram正好相反，用“吃”这个词预测它的上下文。</p>
+<p>Deep bilstm：情感分析，词性标注，实体识别，句法分析，文本蕴涵，……<br>语言模型：几乎无限的预训练语料。</p>
+<p>Language Model<br>ELMO目前最好用的词向量。<br>BERT（transform代替lstm）<br>改进：①Lstm有方向，transform没有方向。②③超大规模数据测。④精细的调参技术。<br>吴林志<br>【三】Char Embedding<br>把字符特征加到 表示信息更丰富。拼接字符级特征。<br>字符词向量没有预训练好的表，都是随机初始化的。<br>训练语调统计的字符不包含全部，所以把字符表建立的完备一点。<br>如果embedding_dim是300维度 char_embed_dim是200维度，那最后拼接就是500 维度，包含了字符特征。</p>
+<p>标准正太分布，方差<br> 初始化可以用xavier_normal，会根据前一层节点，当前一层有n个节点的时候，根据标准差为根号1/n进行正态分布初始化，当激活函数tanh、s型曲线的时候用这个<br> 初始化也可以用kaiming_normal，对xavier_normal的改进，标准差乘2进行正态分布，当激活函数relu的时候用这个<br>一般用kaiming_normal，因为大多数激活函数是relu</p>
+<p>shape是一个属性，size是方法。</p>
+<p>Python  train – char_hidden_size 150 –char_embed_dim 50<br>【问题1】<br>每个索引如果是3维度，经过embedding就变成4维<br>【问题2】<br>conv_out =torch.cat( [self._convs(embed) for _convs in self._convs],dim=1).squeeze(dim=2)<br>【问题3】<br>out.reshape(batch_size, max_seq_len ,-1)</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/08/暑假笔记/2019-7-19/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chengxiaoyun">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="丑小鸭的栖息地">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/08/暑假笔记/2019-7-19/" itemprop="url">2019-7-19</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-08T11:48:12+08:00">
+                2019-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/暑假培训/" itemprop="url" rel="index">
+                    <span itemprop="name">暑假培训</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Transformer<br>Seq——seq机器翻译模型<br>中文——encoder编码——decorder解码——英文<br>Attention只是局部提取信息，每个信息之间没有连接起来。循环结构不需要加位置信息，因为序列循环已经包含了位置信息。但是卷积就需要位置信息，序列的先后顺序，因为他学习不到位置信息。可以给每个节点加一个位置信息，positional encoding。</p>
+<p>Attention注意力机制：<br>不是一种模型，而是一种思想。有翻译就一定要用到attention。<br>“我喜欢恐怖片”是正面的，因为人的大脑关注的是局部信息，人们注意到的是“喜欢”这个词。深度学习也是从大量信息中选择需要的重要信息。之前的cnn rnn只学习到“喜欢”这个局部特征，没有考虑情感词。怎么体现这个选择性呢，通过权重，当遇到“喜欢”这个词的时候就权重分配大一点。<br>给序列分配权重：<br>通过点乘，或者余弦，去找到下一步的权重。找到权重之后加权求和。</p>
+<p>这是一个模型，没有具体含义，在具体问题中才有含义。<br>用一个外部的查询变量，查询序列Q K的相似度（相似度也就是和哪个关联最大），越相似的权重越高，然后施加到V上面。除以根号dk是防止过大。相似度同时除以一个值，不影响相似度。<br>【相似性：从英文（Q）——attention——翻译为法文(K)<br>从历史隐层信息，根据已经翻译的结果，去找序列里面哪个相似度最高的来找下一个，Q里面有学好的上下文历史信息，帮助预测下一步，权重怎么分配是根据已经学好的历史信息】<br>用一个外部的查询变量，先通过点乘找相似度，通过softmax概率化归一化变成概率，使得和为1.然后施加到V上面求和。</p>
+<p>Lstm没有学到局部信息，只学习到了序列信息。<br>Self attention：<br>是Q没有用到外部信息，只用到了自身信息。Q=K=V。只寻找序列内部的联系。<br>（I like apple and it is dilicious自己学习，网络把dilicious指向apple。）无视词之间的距离，直接计算距离关系，能够学习到一个句子的内部结构。直接找，不需要从0时刻开始把前面的信息累计起来，比如dilicious直接找apple。卷积就是直接卷积，没有迭代，不需要把前面执行完，比lstm序列模型速度快。<br>点乘可以并行。矩阵乘不能做并行（因为矩阵是行元素乘列元素累加）。能否做并行就看他的局部变量是否是独立的。<br>残差连接：<br>是<br>Encoder编码：<br>是</p>
+<p>Maxpooling本身就是一个attention，取最大元素，就是注意力。<br>要用attention需要外部辅助信息，很多时候没有外部信息，更多时候是用自己的信息去产生权重，也就是self attention，attention重点就是权重。方法就是利用末状态的隐藏层信息h——next，h和c都可以，h就是对c做了线性变化，h涵盖了c。</p>
+<p>采用attention依旧存在的问题：<br>（1）序列问题存在一个对齐问题，有的序列是做了填充padding的，有可能最后几个元素是填充的，但是也被分了权重，使得原来有元素的位置权重被分了。<br>解决办法：mask<br>在softmax的时候分配权值，控制padding填充部分不分配权值。把padding部分传入负无穷。</p>
+<p>使用服务器设置参数–cuda 1</p>
+<p>My question：<br>【1】mask，传入负无穷，就可以分配权值为0。-mask就是padding部分，然后填充为负无穷。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/08/暑假笔记/2019-7-17/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chengxiaoyun">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="丑小鸭的栖息地">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/08/暑假笔记/2019-7-17/" itemprop="url">2019-7-17</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-08T11:47:48+08:00">
+                2019-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/暑假培训/" itemprop="url" rel="index">
+                    <span itemprop="name">暑假培训</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在传统的神经网络模型中，是从输入层到隐含层再到输出层，层与层之间是全连接的，每层之间的节点是无连接的。但是这种普通的神经网络对于很多问题却无能无力。例如，你要预测句子的下一个单词是什么，一般需要用到前面的单词，因为一个句子中前后单词并不是独立的。<br>循环神经网路，即一个序列当前的输出与前面的输出也有关。具体的表现形式为网络会对前面的信息进行记忆并应用于当前输出的计算中，即隐藏层之间的节点不再无连接而是有连接的，并且隐藏层的输入不仅包括输入层的输出还包括上一时刻隐藏层的输出。</p>
+<p>捕捉序列信息，循环神经网络，常见的有LSTM，GRU（lstm的变体），RNN。<br>把之前的信息不断累积，通过一个迭代结构，把之前的序列信息，加上当前时刻的信息。历史信息都学到了。加了一个循环的结构。<br>与传统不同的是：<br>引入了一个新的状态累计信息，引入了一个门机制。<br>可能存在的问题：<br>训练时更新权重：梯度爆炸 梯度离散<br>小于0的数越乘越小，或者是越来越大。两种极端。<br>出现这种异常梯度的原因是序列太长的话，就只能学习到几步，梯度障碍。再往前追溯追溯不了。</p>
+<p>几种门机制：输入门，输出门，遗忘门（控制前一时刻多少信息流入）</p>
+<p>底层的网络能捕获基本信息，层数加深就能捕获到语义信息。双向网络（有的信息是后缀的，必须从两个方向去捕捉语义，比如“衣服 差 的 不行”。BiLSTM）</p>
+<p>reverse()是一个list的反转。reversed是一个内置的反转。</p>
+<p>Question：<br>【1】什么元祖什么的</p>
+<h1 id="lstmcell-grucell-fw-next-不是元祖-h1-c1迭代"><a href="#lstmcell-grucell-fw-next-不是元祖-h1-c1迭代" class="headerlink" title="lstmcell/grucell   fw_next 不是元祖 h1=c1迭代"></a>lstmcell/grucell   fw_next 不是元祖 h1=c1迭代</h1><p>for xi in range(seq_len):<br>    if self._rnn_type == ‘LSTM’:<br>        # lstmcell   fw_next也是元祖h1 c1  h0 c0<br>        h_next,c_next = self._rnn_cell(inputs[xi],fw_next)<br>        # 先拆开后合并，做一个过滤<br>        h_next = h_next * mask[xi]<br>        c_next = c_next * mask[xi]<br>        fw_next = (h_next,c_next)<br>        outputs.append(h_next)<br>    else:<br>      # RNNcell/GRUcell   fw_next 不是元祖 h1=c1迭代<br>      fw_next = self._rnn_cell(inputs[xi], fw_next)<br>      fw_next = fw_next * mask[xi]<br>      outputs.append(fw_next)</p>
+<p>【2】掩码填充什么的<br>【3】def _forward(self,inputs,init_hidden,mask):<br>    ‘’’<br>    :param inputs: inputs[seq_len,batch_size,input_size]<br>    :param init_hidden:[batch_size,hidden_size],如果是lstm，则init_hidden类型是元祖<br>    :param mask: inputs[seq_len,batch_size,hidden_size]<br>    :return:<br>    ‘’’<br>也可以这样处理mask  h_next = h_next * mask[xi]+init_hidden[0]<em>(1-mask[xi])<br>【4】#  outputs保留的是中间状态，每个大小都是batch_size</em>hidden_size<br>【5】为什么要返回三维的torch.stack(tuple(outputs),dim=0)<br>【6】bilstm和lstm  rnn的关系，为什么在bilstm里面调用rnn</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/08/暑假笔记/2019-7-15/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chengxiaoyun">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="丑小鸭的栖息地">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/08/暑假笔记/2019-7-15/" itemprop="url">2019-7-15</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-08T11:47:30+08:00">
+                2019-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/暑假培训/" itemprop="url" rel="index">
+                    <span itemprop="name">暑假培训</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Vocab.py功能：<br>就是对训练集进行word to index和index to word操作。对预训练的文件读取到一个矩阵表里面，同时进行word to index和index to word操作。<br>def get_embedding_weights(self,path):<br>这个方法作用：就是把预训练的语料那个txt文件进行迁移，迁移到一张表，这张表进行了word to index和index to word的索引操作。之后就可以通过这张表的id来引用需要的向量表示。</p>
+<p>Word.txt预训练的词向量的文件从哪里来的（预训练好的词向量，word2vec，fasttext（发明者tomos mikolov。Fasttext改进的是用n-gram），glove）<br>为什么要根据外面预训练好的词向量文件建立一个词索引表，不直接在训练语料上建表？（预训练的涵盖的词范围更广，这样测试的时候oov就会少。如果直接用训练语料建表，测试的时候oov会很多。）<br>词向量空间距离反映语义相似度。</p>
+<p>我们整体做的是什么：情感分析，文本分类。<br>模型思路：把模型、参数、语料传给分类器，分类器创建一个对象，然后对象有一个train方法，evaluate评估方法。</p>
+<p>对待OOV：（1）置0；（2）随机值；（3）求已知向量的平均值</p>
+<p>卷积，激活，池化封装为一序列的操作，进行窗口分别为3,4,5大小的三次卷积，然后将结果进行拼接。</p>
+<p>把一层层的维度搞清楚，网络就是搞明白了：</p>
+<p>卷积是从左到右，从上到下。<br>行是特征，列是索引。要转置一下再卷积。<br>卷积核池化进行维度变化，激活函数不会。<br>维度变化：<br>输入：<br>64<em>100<br>Embedding：<br>64</em>100<em>300<br>转置64</em>300<em>100，<br>然后卷积<br>64</em>75<em>100  64</em>100<em>100   64</em>125<em>100<br>池化：<br>64</em>75<em>1   64</em>100<em>1   64</em>125<em>1<br>拼接：<br>64</em>300<em>1<br>降维输入linear：<br>64</em>300</p>
+<p>Batch_size<em>seq_len<br>Batch_size</em>seq_len<em>embedding<br>Batch_size</em>embedding<em>seq_len<br>Batch_size</em>embedding*1(pooling)</p>
+<p>①python特点，一切兼为对象<br>②网络只能跑tensor，不能跑其他。 pytorch网络所有参数都是tensor，不存在numpy等其他类型。跑tensor也不单单是跑tensor，实际上跑的是variable变量，variable封装了data、grad梯度、创建方式<br>③在pytorch0.4之后，Tensor和variable合并了。<br>④List要用modulelist，不然不会报错，但是效果会差。<br>⑤模型参数 dilation是指用于控制内核点之间的距离，一般图像卷积会有用，文本卷积不需要。</p>
+<p>写模型要看官方文档：<br>Pytorch<br><a href="https://pytorch-cn.readthedocs.io/zh/latest/" target="_blank" rel="noopener">https://pytorch-cn.readthedocs.io/zh/latest/</a><br><a href="https://pytorch.org/docs/stable/index.html" target="_blank" rel="noopener">https://pytorch.org/docs/stable/index.html</a><br>Python<br><a href="https://www.runoob.com/python3/python3-tutorial.html" target="_blank" rel="noopener">https://www.runoob.com/python3/python3-tutorial.html</a></p>
+<p>问题：<br>self._extwd2idx = {wd: idx+1 for idx,wd in enumerate(vec_tabs.keys())}</p>
+<p>过拟合就是在训练集上很好，在测试集上很差。本质上就是因为①模型参数太多了②以复杂的模型去拟合少量的数据。<br>抑制过拟合：让数据又多又干净<br>①数据预处理（降噪，）<br>②dropout层（用在训练的时候）<br>③增大数据规模<br>加dropout原因：可能某些节点之间有依赖关系，是两个节点共同作用使结果变好。所以要用dropout随机的断掉一些节点，消除因为某些节点之间的依赖使得模型性能好。 让模型的泛华能力更强。<br>一般模型都加dropout。只有在训练的时候加。<br>④调参技巧：Eearlystopping早停<br>⑤weight_decay权值下降<br>⑥损失函数正则化</p>
+<p>调参小结：<br>1.loss看趋势<br>2.训练集acc上升，loss下降表明训练正常<br>3.开发集acc下降，loss上升表明模型过拟合<br>4.Epoch不宜设的过大或过小，过大易过拟合，过小易欠拟合<br>5.Adam学习速率不宜过大（1e-3数量级）<br>6.Batch_size和lr尽量呈正相关<br>7.Dropout设定一般在【0.2,0.5】区间范围内<br>8.调参通过命令行去调整，把需要知道的信息打印出来<br>9.可以尝试使用grid seaarch穷举法调参方式<br>10.K-fold交叉验证</p>
+<p>【my question 调优，反向传播，梯度更新，lr，weight decay，随机种子，loss】</p>
+<p>Python train.py -h<br>Python Train.py –lr 1e-3 –epoch 32</p>
+<p>–batch_size 64 –lr 0.0005  –epoc 20<br>文件里面设置的是默认值，通过命令行调参，看得到修改了哪些值，然后再去修改文件。</p>
+<p>Pytorch为什么要梯度初始化置0：<br>梯度下降（权重w怎么更新的，梯度是一个向量，梯度方向是函数上升最快的方向。沿着梯度下降的方向找到局部最小值，对于凸优化问题，局部最小值就是全局最小值。）<br>Pytorch每求一次误差，梯度累加一次。<br>有了u误差更新梯度，有了梯度更新参数</p>
+<p>Python关键字yield生成器：每次调用函数会接着上一次执行的结果执行后返回。和return不同，接着取上一次的数据同时还会把后面的函数执行完毕。取生成器里面的数据要通过for来取。</p>
+<p>训练数据可能会存在前1000条是一个类别，后1000是一个类别，然后通过batch取得数据的时候取得的都是一个类型。所以在batch取数据的时候要进行shuffle。训练数据越乱越好，尽量包含多个类别数据。</p>
+<p>把每个模块的目的搞清楚，然后自己写。</p>
+<p>损失函数，用的较多的是MSE，交叉熵<br>weight_decay权重衰减<br>如果预测值w很大，<br>损失函数正则化：求损失的时候再加一个约束项（关于权重的）</p>
+<p>My question<br>【一】batch数据变量化，什么二维切片<br>for i,inst in enumerate(batch_data):<br>    seq_len = len(inst.words)<br>    # 把实际长度覆盖掉<br>    wd_idx[i,:seq_len] = torch.tensor(wd_vocab.word2index(inst.words))<br>    lbl_idx[i] = torch.tensor( wd_vocab.label2index(inst.label))</p>
+<p>【二】cpu  gpu<br>模型数据要放在同一个设备上。Train和datalodar里面都要加。Args。Device<br>【三】batch_X,batch_y = batch_variable(batch_data,self._vocab,self._args.device)<br>【四】# 用梯度去更新模型参数</p>
+<h1 id="①加动量改变梯度方向；②改变学习速率（先快后慢）；"><a href="#①加动量改变梯度方向；②改变学习速率（先快后慢）；" class="headerlink" title="①加动量改变梯度方向；②改变学习速率（先快后慢）；"></a>①加动量改变梯度方向；②改变学习速率（先快后慢）；</h1><p>【五】weight_decay权重衰减<br>【六】# 计算准确率<br>def _calc_acc(self,pred,target):<br>    # pred dim = batch_size,label_size<br>    torch.eq(torch.argmax(pred,dim=1),target)<br>    pass</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/08/暑假笔记/2019-7-12/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chengxiaoyun">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="丑小鸭的栖息地">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/08/暑假笔记/2019-7-12/" itemprop="url">2019-7-12</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-08T11:46:49+08:00">
+                2019-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/暑假培训/" itemprop="url" rel="index">
+                    <span itemprop="name">暑假培训</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>【一】黄洪：字符串转换为id，word embedding。<br>预训练的词向量用于embedding。<br>映射：word对应一个id，一个id对应一个词向量。<br>首先预训练出一个词对应向量的词表。<br>然后embedding，pytorch里面。<br>写代码写代码</p>
+<p>读取文件，变成string，vocab把word变成数字编号（连续有上界）。<br>Embedding矩阵可以随机初始化；也可以通过外面的词向量预训练得到。<br>【二】杨林：预训练得到词向量（语料库）Embedding怎么来的。<br>fastText提供了集中训练词向量的模型。Fasttext包含了Word2vec。<br>Skipgram模型：找到一个词的上下文信息，也就是语义信息。<br>官方文档参数解释：mincount（规定一个词出现的最小次数，只有达到这个数值的词才可以归到语料库里面）wordNgrams（就是把词比如2gram就是随机把一句话的两个词进行组合。3gram就是随机3个词进行组合。）bucket（和哈希有关系，加快训练查找什么的）minn maxn（规避oov问题）dim（训练的向量维度）lr（learning right在拟合的过程中，首先要在损失函数上面选定一个点，目标是逼近最低点，lr就是长度，每次逼近时移动的长度）loss（损失函数）ws（context window就是怎么定义上下文）epoch（训练多少轮）neg（一般选5）pretrainvector是目标。</p>
+<p>【三】吴林志<br>神经网络，首先将输入节点做一个线性或非线性变化，然后激活函数，输出。Y=g(wx+b)。<br>函数就是映射，假设有一个函数f(“cat”)=猫。<br>深度学习最基本的运算就是矩阵。<br>常见激活函数tanh，symoid，relu（公式下去了解）。<br>n多个节点的话：<br>如果每个节点和下一个节点都有连接，就是输入层、隐层、输出层。<br>不全连接，只是部分连接，参数很多，这就是卷积网络（局部连接，权值共享）<br>卷积网络：卷积核（就是输入序列取多少个节点，窗口大小，）<br>卷积操作：加权求和，随着窗口移动对应位置相乘，然后进行卷积结果拼接。</p>
+<p>通过窗口局部卷积，卷积一般都是向上取整，填充为了保证输入输出一致。卷积核固定情况下，通过pad做伸缩，二维里面就是保证输出形状基本不变，同时信息提取的更充分。<br>池化层：跟卷积操作一样，不一样的就是对卷积的结果进行处理，一般都是取最大值或者取平均值。<br>经典的卷积：先做一个卷积层，然后做一个线性变化relu（假如卷积信息有效就保留，无用就筛选），最后经过一个池化层（池化层看情况加，大多数情感分析都加池化层。对图像来说，池化目的就是从一堆特征选出一个更好的特征。对于文本来说池化就是得出一个固定的值）。</p>
+<p>加激活函数是为了让模型非线性化。不加的话加再多层也只是个线性组合。</p>
+<p>总的一个设计思路：<br>1.面向对象、模块化<br>2.设计过程，增量开发<br>3.从整体到局部</p>
+<p>Python pytest单元测试：<br>1.py文件以testXXX命名<br>2.方法名也是testXXX</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/08/暑假笔记/2019-7-11/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chengxiaoyun">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="丑小鸭的栖息地">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/08/暑假笔记/2019-7-11/" itemprop="url">2019-7-11</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-08T11:45:54+08:00">
+                2019-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/暑假培训/" itemprop="url" rel="index">
+                    <span itemprop="name">暑假培训</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>重视实践<br>比如文本分类重要的是情感分析，不能只从书上知道，要实践。</p>
+<p><a href="https://nlp.stanford.edu/projects/" target="_blank" rel="noopener">https://nlp.stanford.edu/projects/</a><br>培训两个月之后要交一个技术报告，要写的很详细具体，比如你对attention机制的理解，你觉得深度学习最重要的部分。<br><a href="https://arxiv.org/list/cs.CL/recent" target="_blank" rel="noopener">https://arxiv.org/list/cs.CL/recent</a></p>
+<p>要用pytorch<br>大的方向：文本分类任务</p>
+<p>下午：<br>【一】黄洪部分：<br>从数据集拿到数据，到扔到模型之前的处理。<br>主要步骤：<br>（1）数据读取加载。<br>可以做分词的nltk,spacy。<br>数据加载：Dataloader类；统计词的频率：Counter类。<br>根据任务进行分类，比如二分类就标记0,1。标签和文本之间要通过符号分割。<br>（2）预处理。<br>①进行符号的统一，比如中英文的标点符号不一样会影响歧义。空格相关的也进行处理。就是把后面的文本规范化。<br>②文本加载，pytorch有一个自带的类可以自动加载（但是是黑盒的，要保证完全理解它的源码，完全掌握可以用，甚至可以自己拓展）。手动写的话比较灵活，可以按照你定义的规则来组成一个instance，就像我们检测代码克隆读取一个一个方法，通过大括号来提取。<br>（3）One-hot编号。Word to Id，词转换成id。<br>Word embedding<br>（4）生成batch（批处理，在机器学习上不是必须的。但是深度学习数据量比较大，）。通过调用pytorch。</p>
+<p>【二】张老师：<br>训练、开发、测试，防止以后做开发出现误区：<br>不要怕出错，在错误中学习。<br>在训练集上调参，不是在测试集上调参。<br>神经网络有很多不好的地方，随机种子换一下结果就会很不一样。数据标的话一致性比较差，训练样本比较差。所以要换几个随机种子，最后取结果的平均值。<br>或者是交叉验证大参数不需要调，小参数比如迭代次数多次调换。<br>预训练可以规避随机种子的问题，但是预训练和真正训练的数据集是不一样的。<br>传统机器学习方法（在深度学习之前）：<br>Vocab结构就是把字符串转换为数字，字符串可以是word、lable。<br>“我 今天 早上 起 得 很  早”<br>在深度学习之前：每个词一个编号，对应一个10000维的向量（one-hot向量，非常稀疏，只有一个部分是1，其它部分是0）。<br>然后情感分析o=w*x（把一句话转换为一个10000维的向量，哪一位有词就是1没有就是0 ）<br>主要是训练w参数，模型就是参数。<br>深度学习：Word embedding</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/29/transformer/transformer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -529,907 +1726,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/29/网易云学习/RNN的梯度下降and使用GRU/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chengxiaoyun">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/head.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="丑小鸭的栖息地">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/29/网易云学习/RNN的梯度下降and使用GRU/" itemprop="url">RNN的梯度下降&使用GRU</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-29T11:07:57+08:00">
-                2019-09-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nn-basic/" itemprop="url" rel="index">
-                    <span itemprop="name">nn basic</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>长期的依赖关系：前面的单词，对句子后面的单词有影响。<br>RNN不擅长捕获这种长期的关系，<br>层数很深的时候，反向传播，后面层的输出误差，很难影响前面层的权重。<br>梯度爆炸很容易发现，你的参数会随着指数增加。（解决办法：梯度修剪，观察你的梯度向量，如果他高于某个数值，就缩放梯度向量）<br>但是梯度消失很难解决。</p>
-<p>GRU：门控循环控制单元<br>能够解决梯度消失问题，捕获长期依赖关系。</p>
-<p>RNN隐藏层的可视化：<br><img src="https://img-blog.csdnimg.cn/20190929110559646.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>上一个时间步的激活值和当前的x输入一起输入一个激活函数tanh，b是当前的偏差值，计算出激活值a，然后输入一个softmax之类的函数，得到y。</p>
-<p>GRU单元：<br>有个新的变量c记忆细胞，<br>对于GRU<br><img src="https://img-blog.csdnimg.cn/20190929110615150.png" alt="在这里插入图片描述"><br>计算激活值的函数：这是一个候选值，即c<t>的值<br><img src="https://img-blog.csdnimg.cn/20190929110623738.png" alt="在这里插入图片描述"><br>GRU有一个更新门，数值在0-1之间，就是把计算激活值得函数带入sigmoid函数。<br><img src="https://img-blog.csdnimg.cn/20190929110634338.png" alt="在这里插入图片描述"><br>门来决定是否要真的更新。<br>门的值 乘以 候选值 加 （1 减去门的值）乘旧的值<br><img src="https://img-blog.csdnimg.cn/2019092911064375.png" alt="在这里插入图片描述"><br>如果不需要更新就把门的值记为0，就是继续使用旧的值。需要更新就置为1，使用候选值。<br>比如下图，根据cat的单复数影响后面的was还是were。当遇到cat的时候门的值为1。然后后面的单元 which already什么的都是0。<br>c不更新，但是他一直记得cat是单数还是复数。</t></p>
-<p><img src="https://img-blog.csdnimg.cn/20190929110652701.png" alt="在这里插入图片描述"><br>GRU的门控单元<br><img src="https://img-blog.csdnimg.cn/20190929110700873.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>其中紫色阴影部分就是这个公式：<br><img src="https://img-blog.csdnimg.cn/20190929110711422.png" alt="在这里插入图片描述"></p>
-<p>GRU的优点就是，通过门决定，当你从左到右扫描这个句子的时候，是否要更新记忆单元，不更新直到你真的需要使用记忆细胞的时候。<br>因为门值很接近0，c<t>很接近c<t-1>，c的值很好地被维持了，即使经过很多层。这就是缓解梯度下降。</t-1></t></p>
-<p>GRU单元三个重要的公式：</p>
-<p><img src="https://img-blog.csdnimg.cn/20190929110739291.png" alt="在这里插入图片描述">是候选值，中间加一个 门控值 来告诉我们计算出下一个c值和上一个的相关性有多大（比如was were和cat、cats关联大）</p>
-<p><img src="https://img-blog.csdnimg.cn/20190929110752651.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/29/网易云学习/神经网络基本结构and语言模型的构建/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chengxiaoyun">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/head.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="丑小鸭的栖息地">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/29/网易云学习/神经网络基本结构and语言模型的构建/" itemprop="url">神经网络基本结构&语言模型的构建</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-29T11:04:18+08:00">
-                2019-09-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nn-basic/" itemprop="url" rel="index">
-                    <span itemprop="name">nn basic</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="https://img-blog.csdnimg.cn/20190929110335169.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>one to one：不重要，没什么可说的<br>one to many：比如音乐生成（序列模型）<br>many to one：比如情感分析，输入一段评价，生成一个星级的负面或正面。<br>many to many（输入和输出长度一致）<br>many to many（输入和输出长度不一致）：比如机器翻译，一段文字翻译为另外一种语言，encoder-decoder。<br>注意力机制：<br>把他们组合在一起，就可以生成各种各样的模型。</p>
-<p>语言模型：输入一个文本序列，语言模型用y表示x，并且估计每个句子中，各个单词出现的可能性。<br>如何构建语言模型：<br>第一个时间步：<br>输入o向量。然后利用softmax预测第一个词的概率。而不去管结果。softmax可能会输出10000（你的词典大小）种可能。<br>第二个的时间步：<br>传入正确的第一个单词和上一步预测的单词，计算出序列的下一个单词是什么，通过之前的输入，计算出字典中的每一个词的概率。<br>RNN：考虑前面得到的所有词，给出下一个词的分布，从左到右的预测每个词。<br><img src="https://img-blog.csdnimg.cn/20190929110404727.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>训练一个好的模型：<br>定义一个代价函数，也就是损失函数。整体损失就是每一步损失相加起来。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/25/私密/For Mr.Hou2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chengxiaoyun">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/head.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="丑小鸭的栖息地">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/25/私密/For Mr.Hou2/" itemprop="url">Mr.Hou's mistake</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-25T16:35:28+08:00">
-                2019-09-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hou/" itemprop="url" rel="index">
-                    <span itemprop="name">hou</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>太多了，数不清，自己反思去哇</strong></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/15/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chengxiaoyun">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/head.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="丑小鸭的栖息地">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/15/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-15T16:45:47+08:00">
-                2019-09-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/test/" itemprop="url" rel="index">
-                    <span itemprop="name">test</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/15/私密/For Mr.Hou/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chengxiaoyun">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/head.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="丑小鸭的栖息地">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/15/私密/For Mr.Hou/" itemprop="url">don't look</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-15T16:45:28+08:00">
-                2019-09-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hou/" itemprop="url" rel="index">
-                    <span itemprop="name">hou</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>welcome 侯先生：</strong></p>
-<ul>
-<li><p>你是小可爱的第一个访客哟。</p>
-<p>爱你(＾Ｕ＾)ノ~ＹＯ<img src="https://img-blog.csdnimg.cn/20190913183216323.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/13/使用hexo搭建博客并上传到github/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chengxiaoyun">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/head.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="丑小鸭的栖息地">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/13/使用hexo搭建博客并上传到github/" itemprop="url">使用hexo搭建博客并上传到github</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-13T18:19:16+08:00">
-                2019-09-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/skilledness/" itemprop="url" rel="index">
-                    <span itemprop="name">skilledness</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>丑小鸭今天第一次使用hexo搭建博客，记录一下。</p>
-<p>前提：已安装git、注册github账号。</p>
-<ol>
-<li><p>首先要安装node.js，最好安装最新版本。<br> 博主第一次安装的v4版本，结果后面在使用hexo命令时报一下错误：<br> SyntaxError: Unexpected token =at exports.runInThisContext (vm.js:53:16)<br>然后根据网友提示升级版本：<br><img src="https://img-blog.csdnimg.cn/20190913181533298.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>但是并没有成功。<br>于是乎卸载重新安装最新版本。</p>
-<p>确认nodejs安装成功就直接在cmd里node –version或在git bash里面输入node回车（命令行变成一个右箭头就是成功。ctrl+c退出）</p>
-</li>
-<li><p>安装hexo。<br>（1）  利用 npm 命令即可安装。（在任意位置点击鼠标右键，选择 Git bash ）</p>
-<pre><code>npm install -g hexo-cli 或者 npm install -g hexo</code></pre><p>（2）创建hexo文件夹：<br>随便在你指定的文件夹下（如 D:\hexo ），(在 D:\hexo内点击鼠标右键，选择 Git bash )，Hexo 即会自动在目标文件夹建立网站所需要的所有文件。<br>（3）hexo init<br>（4）npm install<br>（5） 启动本地服务。现在已经搭建起本地的hexo博客了，执行以下命令(在 D:\hexo )。①hexo generate（或者hexo g）②hexo server（或者 hero s）<br>然后到浏览器输入 localhost:4000 看看（如果无法访问，请查看你的4000端口是否被占用）。<br>至此，本地博客已经搭建起来了，只是本地的，接下来关联GitHub。</p>
-</li>
-<li><p>在github中新建一个public的仓库。<br> 名字命名为yourname.github.io。（你的github名字加.github.io）</p>
-</li>
-<li><p>hexo关联GitHub。<br>找到你存放Hexo的文件夹（如 D:\hexo ），在里面找到_config.yml文件，用notepad++打开，直接拖到最后，可以看到。<br><img src="https://img-blog.csdnimg.cn/20190913175519286.png" alt="在这里插入图片描述"><br>改成以下，特别注意，在：的后面是有一个空格的，千万要小心，不然后出错的，其中yourname即在github上面的用户名<br><img src="https://img-blog.csdnimg.cn/20190913175551829.png" alt="在这里插入图片描述"><br>保存后，然后在当前文件夹（ D:\hexo ）打开Git Bash Here<br>$ hexo g<br>$ hexo d<br>如果出现以下异常<br>ERROR Deployer not found: git<br>尝试输入以下命令：<br>$ npm install hexo-deployer-git –save<br>再重新执行刚刚的两条命令<br>这时候如果弹出一个对话框，输入在guthub上面的用户名和密码即可<br>这时候我们就可以在浏览器输入<a href="http://yourname.github.io（yourname替换成github上的名称）就可以看到博客已经搭建成功了。" target="_blank" rel="noopener">http://yourname.github.io（yourname替换成github上的名称）就可以看到博客已经搭建成功了。</a></p>
-</li>
-<li><p>更改hexo样式<br>① 首先在浏览器<a href="https://hexo.io/themes/进入github官方主题界面。里面有非常多的主题，选择一个自己喜欢的，点进去" target="_blank" rel="noopener">https://hexo.io/themes/进入github官方主题界面。里面有非常多的主题，选择一个自己喜欢的，点进去</a> ，就比如说我选了这个：cyanstyle  ,点击去之后就会进入这个主题拥有者的博客。然后找到博主的仓库，进入他的仓库，在他的仓库中搜索这个样式的名称，找到对应的下载地址，我找的是（<a href="https://github.com/wizardforcel/hexo-theme-cyanstyle.git）" target="_blank" rel="noopener">https://github.com/wizardforcel/hexo-theme-cyanstyle.git）</a><br>②进入你的Hexo地址，比如我的是（ D:\hexo ）打开Git Bash Here，输入<br> git clone <a href="https://github.com/wizardforcel/hexo-theme-cyanstyle.git" target="_blank" rel="noopener">https://github.com/wizardforcel/hexo-theme-cyanstyle.git</a><br> 然后将下载下来的这个主题放入你的D:\Hexo\themes文件夹中，给他命名（如cyanstyle）<br>每个主题样式的目录如下：<br><img src="https://img-blog.csdnimg.cn/20190913180345966.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>③更改一下hexo目录（ D:\hexo ）下的配置文件_config.yml，主题名修改一下即可<br><img src="https://img-blog.csdnimg.cn/20190913180500567.png" alt="在这里插入图片描述"><br>④然后清空一下public缓存：hexo clean<br>⑤然后重新生成datebase：hexo  g<br>⑥ hexo  s 浏览器打开本地仓库（localhost:4000你会发现本地仓库已经变为自己刚刚更改的主题了 ）<br>⑦然后上传到远程仓库就行了：hexo d 在浏览器输入域名<a href="http://yourname.github.io就可以看到已经更改的主题。" target="_blank" rel="noopener">http://yourname.github.io就可以看到已经更改的主题。</a></p>
-</li>
-<li><p>上传你的第一篇博客。<br>你可以使用CSDN网上面提供的MarkDown编辑器 <a href="http://write.blog.csdn.net/mdeditor" target="_blank" rel="noopener">http://write.blog.csdn.net/mdeditor</a> (在csdn博客写新文章的时候能切换到这种编辑器)，写好文章后，找到菜单栏的“导出到本地”选项 。 以md格式导出到本地，然后copy该md文件，粘贴到你当初建的博客站点（ D:\hexo ）文件夹下的source\ _posts目录下，一个md文件对应一篇博客文章。</p>
-</li>
-</ol>
-<p>接着在你的文件夹（ D:\hexo ）下右键空白处，选择Git Bash Here，<br>输入：hexo generate（hexo g），回车，生成静态页面，<br>再输入：hexo server（hexo s），回车，到localhost:4000预览博客效果，<br>最后输入：hexo deploy（hexo d），回车，同步到github上去就行了。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1475,7 +1778,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1486,7 +1789,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
