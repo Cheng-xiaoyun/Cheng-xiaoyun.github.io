@@ -239,6 +239,455 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/08/暑假笔记/2019-7-11/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chengxiaoyun">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="丑小鸭的栖息地">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/08/暑假笔记/2019-7-11/" itemprop="url">2019-7-11</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-08T11:45:54+08:00">
+                2019-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/暑假培训/" itemprop="url" rel="index">
+                    <span itemprop="name">暑假培训</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>重视实践<br>比如文本分类重要的是情感分析，不能只从书上知道，要实践。</p>
+<p><a href="https://nlp.stanford.edu/projects/" target="_blank" rel="noopener">https://nlp.stanford.edu/projects/</a><br>培训两个月之后要交一个技术报告，要写的很详细具体，比如你对attention机制的理解，你觉得深度学习最重要的部分。<br><a href="https://arxiv.org/list/cs.CL/recent" target="_blank" rel="noopener">https://arxiv.org/list/cs.CL/recent</a></p>
+<p>要用pytorch<br>大的方向：文本分类任务</p>
+<p>下午：<br>【一】黄洪部分：<br>从数据集拿到数据，到扔到模型之前的处理。<br>主要步骤：<br>（1）数据读取加载。<br>可以做分词的nltk,spacy。<br>数据加载：Dataloader类；统计词的频率：Counter类。<br>根据任务进行分类，比如二分类就标记0,1。标签和文本之间要通过符号分割。<br>（2）预处理。<br>①进行符号的统一，比如中英文的标点符号不一样会影响歧义。空格相关的也进行处理。就是把后面的文本规范化。<br>②文本加载，pytorch有一个自带的类可以自动加载（但是是黑盒的，要保证完全理解它的源码，完全掌握可以用，甚至可以自己拓展）。手动写的话比较灵活，可以按照你定义的规则来组成一个instance，就像我们检测代码克隆读取一个一个方法，通过大括号来提取。<br>（3）One-hot编号。Word to Id，词转换成id。<br>Word embedding<br>（4）生成batch（批处理，在机器学习上不是必须的。但是深度学习数据量比较大，）。通过调用pytorch。</p>
+<p>【二】张老师：<br>训练、开发、测试，防止以后做开发出现误区：<br>不要怕出错，在错误中学习。<br>在训练集上调参，不是在测试集上调参。<br>神经网络有很多不好的地方，随机种子换一下结果就会很不一样。数据标的话一致性比较差，训练样本比较差。所以要换几个随机种子，最后取结果的平均值。<br>或者是交叉验证大参数不需要调，小参数比如迭代次数多次调换。<br>预训练可以规避随机种子的问题，但是预训练和真正训练的数据集是不一样的。<br>传统机器学习方法（在深度学习之前）：<br>Vocab结构就是把字符串转换为数字，字符串可以是word、lable。<br>“我 今天 早上 起 得 很  早”<br>在深度学习之前：每个词一个编号，对应一个10000维的向量（one-hot向量，非常稀疏，只有一个部分是1，其它部分是0）。<br>然后情感分析o=w*x（把一句话转换为一个10000维的向量，哪一位有词就是1没有就是0 ）<br>主要是训练w参数，模型就是参数。<br>深度学习：Word embedding</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/29/transformer/transformer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chengxiaoyun">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="丑小鸭的栖息地">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/29/transformer/transformer/" itemprop="url">Transformer初步了解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-29T16:51:18+08:00">
+                2019-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/transformer/" itemprop="url" rel="index">
+                    <span itemprop="name">transformer</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Transformer中抛弃了传统的CNN和RNN，整个网络结构完全是由Attention机制组成。更准确地讲，Transformer由且<strong>仅由self-Attenion和Feed Forward Neural Network组成</strong>。<br>采用Attention机制的原因是考虑到RNN（或者LSTM，GRU等）的计算限制为是顺序的，也就是说RNN相关算法只能从左向右依次计算或者从右向左依次计算，这种机制带来了两个问题：<br>       1.时间片 t 的计算依赖 t-1 时刻的计算结果，这样限制了模型的并行能力；<br>       2.顺序计算的过程中信息会丢失，尽管LSTM等门机制的结构一定程度上缓解了长期依赖的问题，但是对于特别长期的依赖现象,LSTM依旧无能为力。<br>Transformer的提出解决了上面两个问题，<strong>首先它使用了Attention机制，将序列中的任意两个位置之间的距离是缩小为一个常量</strong>；其次它不是类似RNN的顺序结构，因此具有更好的并行性，符合现有的GPU框架。<br><img src="https://img-blog.csdnimg.cn/20190929161612774.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>如论文中所设置的，编码器由6个编码block组成，同样解码器是6个解码block组成。与所有的生成模型相同的是，编码器的输出会作为解码器的输入，如图3所示：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190929161631536.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190929161647206.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>Decoder的结构如图5所示，它和encoder的不同之处在于Decoder多了一个Encoder-Decoder Attention，两个Attention分别用于计算输入和输出的权值：<br>       1. <strong>Self-Attention：当前翻译和已经翻译的前文之间的关系；</strong><br>        2. Encoder-Decnoder Attention：当前翻译和编码的特征向量之间的关系。<br><img src="https://img-blog.csdnimg.cn/20190929161703777.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="输入编码"><a href="#输入编码" class="headerlink" title="输入编码:"></a>输入编码:</h2><p><strong>Word2Vec</strong>等词嵌入方法将输入语料转化成特征向量，论文中使用的词嵌入的维度为d=512;<br><img src="https://img-blog.csdnimg.cn/20190929161713284.png" alt="在这里插入图片描述"><br>在最底层的block中， x 将直接作为Transformer的输入，而在其他层中，输入则是上一个block的输出。<br><img src="https://img-blog.csdnimg.cn/20190929161726274.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="Self-Attention"><a href="#Self-Attention" class="headerlink" title="Self-Attention"></a>Self-Attention</h2><p>Self-Attention是Transformer最核心的内容，<br>在self-attention中，<strong>每个单词有3个不同的向量</strong>，它们分别是Query向量(Q),Key向量(k)和Value向量(v),，长度均是64。它们是通过3个不同的权值矩阵由嵌入向量X(1<em>512)乘以三个不同的权值矩阵WQ,WK,WV(512</em>64)得到的。<br><img src="https://img-blog.csdnimg.cn/20190929161736488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>那么Query，Key，Value是什么意思呢？它们在Attention的计算中扮演着什么角色呢？我们先看一下Attention的计算方法，整个过程可以分成7步：<br><img src="https://img-blog.csdnimg.cn/2019092916154161.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>上面步骤的可以表示为图10的形式。<br><img src="https://img-blog.csdnimg.cn/20190929161954345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>实际计算过程中是采用基于矩阵的计算方式，那么论文中的 Q,K,V的计算方式如图11：<br><img src="https://img-blog.csdnimg.cn/20190929162256228.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190929162320528.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>在self-attention需要强调的最后一点是其采用了<strong>残差网络 中的short-cut结构</strong>，目的当然是解决深度学习中的退化问题，得到的最终结果如图13。<br><img src="https://img-blog.csdnimg.cn/20190929162440763.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190929163721155.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190929163806782.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>同self-attention一样，multi-head attention也加入了short-cut机制。</p>
+<h2 id="Encoder-Decoder-Attention"><a href="#Encoder-Decoder-Attention" class="headerlink" title="Encoder-Decoder Attention"></a>Encoder-Decoder Attention</h2><p>在解码器中，Transformer block比编码器中多了个encoder-cecoder attention。在encoder-decoder attention中， Q 来自与解码器的上一个输出， K 和 V则来自于与编码器的输出。其计算方式完全和图10的过程相同。</p>
+<p>由于在机器翻译中，解码过程是一个顺序操作的过程，也就是当解码第 k 个特征向量时，我们只能看到第 k-1 及其之前的解码结果，论文中把这种情况下的multi-head attention叫做masked multi-head attention。</p>
+<h2 id="损失层"><a href="#损失层" class="headerlink" title="损失层"></a>损失层</h2><p>解码器解码之后，解码的特征向量经过一层激活函数为softmax的全连接层之后得到反映每个单词概率的输出向量。此时我们便可以通过CTC等损失函数训练模型了。</p>
+<p>而一个完整可训练的网络结构便是encoder和decoder的堆叠（各 N个， N=6），我们可以得到图15中的完整的Transformer的结构（即论文中的图1）<br><img src="https://img-blog.csdnimg.cn/20190929164330695.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="位置编码"><a href="#位置编码" class="headerlink" title="位置编码"></a>位置编码</h2><p>截止目前为止，我们介绍的Transformer模型并没有捕捉顺序序列的能力，也就是说无论句子的结构怎么打乱，Transformer都会得到类似的结果。换句话说，Transformer只是一个功能更强大的词袋模型而已。</p>
+<p>为了解决这个问题，论文中在编码词向量时引入了位置编码（Position Embedding）的特征。具体地说，位置编码会在词向量中加入了单词的位置信息，这样Transformer就能区分不同位置的单词了。</p>
+<p>那么怎么编码这个位置信息呢？常见的模式有：a. 根据数据学习；b. 自己设计编码规则。在这里作者采用了第二种方式。那么这个位置编码该是什么样子呢？通常位置编码是一个长度为 d(512维) 的特征向量，这样<strong>便于和词向量进行单位加</strong>的操作，如图16。<br><img src="https://img-blog.csdnimg.cn/2019092916470993.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190929164836701.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>优点</strong>：（1）虽然Transformer最终也没有逃脱传统学习的套路，Transformer也只是一个全连接（或者是一维卷积）加Attention的结合体。但是其设计已经足够有创新，因为其抛弃了在NLP中最根本的RNN或者CNN并且取得了非常不错的效果，算法的设计非常精彩，值得每个深度学习的相关人员仔细研究和品位。（2）Transformer的设计最大的带来性能提升的关键是将<strong>任意</strong>两个单词的距离是1，这对解决NLP中棘手的长期依赖问题是非常有效的。（3）Transformer不仅仅可以应用在NLP的机器翻译领域，甚至可以不局限于NLP领域，是非常有科研潜力的一个方向。（4）算法的并行性非常好，符合目前的硬件（主要指GPU）环境。</p>
+<p><strong>缺点</strong>：（1）粗暴的抛弃RNN和CNN虽然非常炫技，但是它也使模型丧失了捕捉<strong>局部特征</strong>的能力，RNN + CNN + Transformer的结合可能会带来更好的效果。（2）Transformer失去的位置信息其实在NLP中非常重要，而论文中在特征向量中加入Position Embedding也只是一个权宜之计，并没有改变Transformer结构上的固有缺陷</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/29/网易云学习/Attention机制/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chengxiaoyun">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="丑小鸭的栖息地">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/29/网易云学习/Attention机制/" itemprop="url">Attention机制</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-29T11:09:41+08:00">
+                2019-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nn-basic/" itemprop="url" rel="index">
+                    <span itemprop="name">nn basic</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Attention机制其实就是一系列注意力分配系数，也就是一系列权重参数罢了。</p>
+<p>注意力模型就是要从序列中学习到每一个元素的重要程度，然后按重要程度将元素合并。 </p>
+<p>换一个角度来理解，我们将attention机制看做软寻址。就是说序列中每一个元素都由key(地址)和value(元素)数据对存储在存储器里，当有query=key的查询时，需要取出元素的value值(也即query查询的attention值)，与传统的寻址不一样，它不是按照地址取出值的，它是通过计算key与query的相似度来完成寻址。这就是所谓的软寻址，它可能会把所有地址(key)的值(value)取出来，上步计算出的相似度决定了取出来值的重要程度，然后按重要程度合并value值得到attention值，此处的合并指的是加权求和。</p>
+<p>优点:<br>一步到位的全局联系捕捉</p>
+<p>上文说了一些，attention机制可以灵活的捕捉全局和局部的联系，而且是一步到位的。另一方面从attention函数就可以看出来，它先是进行序列的每一个元素与其他元素的对比，在这个过程中每一个元素间的距离都是一，因此它比时间序列RNNs的一步步递推得到长期依赖关系好的多，越长的序列RNNs捕捉长期依赖关系就越弱。<br>并行计算减少模型训练时间</p>
+<p>Attention机制每一步计算不依赖于上一步的计算结果，因此可以和CNN一样并行处理。但是CNN也只是每次捕捉局部信息，通过层叠来获取全局的联系增强视野。</p>
+<p>缺点:<br>缺点很明显，attention机制不是一个”distance-aware”的，它不能捕捉语序顺序(这里是语序哦，就是元素的顺序)。这在NLP中是比较糟糕的，自然语言的语序是包含太多的信息。如果确实了这方面的信息，结果往往会是打折扣的。说到底，attention机制就是一个精致的”词袋”模型。所以有时候我就在想，在NLP任务中，我把分词向量化后计算一波TF-IDF是不是会和这种attention机制取得一样的效果呢? 当然这个缺点也好搞定，我在添加位置信息就好了。所以就有了 position-embedding(位置向量)的概念了，这里就不细说了。</p>
+<p>Attention机制说大了就一句话，分配权重系数。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/29/网易云学习/RNN的梯度下降and使用GRU/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1176,7 +1625,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1187,7 +1636,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

@@ -79,17 +79,21 @@
 
 
 
-<meta name="description" content="【一】黄洪：字符串转换为id，word embedding。预训练的词向量用于embedding。映射：word对应一个id，一个id对应一个词向量。首先预训练出一个词对应向量的词表。然后embedding，pytorch里面。写代码写代码 读取文件，变成string，vocab把word变成数字编号（连续有上界）。Embedding矩阵可以随机初始化；也可以通过外面的词向量预训练得到。【二】杨林">
+<meta name="description" content="6个encoder结构相同，参数不同。self-attention：两个相同序列直接的atention。两个不同序列之间的atteion就是一个标准的attention。 decodee部分：对ecoder和decoder序列之间做了一个attention。 具体什么是attention：比如输入是一个序列“我要吃饭”经过一个双向的rnn，对每个时刻正向和反向进行一个拼接，拿到每个时刻对应的emb">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2019-7-12">
-<meta property="og:url" content="http://yoursite.com/2019/10/08/暑假笔记/2019-7-12/index.html">
+<meta property="og:title" content="transformer的encoder部分">
+<meta property="og:url" content="http://yoursite.com/2019/10/17/transformer/transformer的encoder部分/index.html">
 <meta property="og:site_name" content="丑小鸭的栖息地">
-<meta property="og:description" content="【一】黄洪：字符串转换为id，word embedding。预训练的词向量用于embedding。映射：word对应一个id，一个id对应一个词向量。首先预训练出一个词对应向量的词表。然后embedding，pytorch里面。写代码写代码 读取文件，变成string，vocab把word变成数字编号（连续有上界）。Embedding矩阵可以随机初始化；也可以通过外面的词向量预训练得到。【二】杨林">
+<meta property="og:description" content="6个encoder结构相同，参数不同。self-attention：两个相同序列直接的atention。两个不同序列之间的atteion就是一个标准的attention。 decodee部分：对ecoder和decoder序列之间做了一个attention。 具体什么是attention：比如输入是一个序列“我要吃饭”经过一个双向的rnn，对每个时刻正向和反向进行一个拼接，拿到每个时刻对应的emb">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-08T03:46:49.493Z">
+<meta property="og:image" content="https://i.imgur.com/3pizv2X.png">
+<meta property="og:image" content="https://i.imgur.com/9J9RxGD.png">
+<meta property="og:image" content="https://i.imgur.com/X7icyeS.png">
+<meta property="og:updated_time" content="2019-10-17T03:40:52.216Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2019-7-12">
-<meta name="twitter:description" content="【一】黄洪：字符串转换为id，word embedding。预训练的词向量用于embedding。映射：word对应一个id，一个id对应一个词向量。首先预训练出一个词对应向量的词表。然后embedding，pytorch里面。写代码写代码 读取文件，变成string，vocab把word变成数字编号（连续有上界）。Embedding矩阵可以随机初始化；也可以通过外面的词向量预训练得到。【二】杨林">
+<meta name="twitter:title" content="transformer的encoder部分">
+<meta name="twitter:description" content="6个encoder结构相同，参数不同。self-attention：两个相同序列直接的atention。两个不同序列之间的atteion就是一个标准的attention。 decodee部分：对ecoder和decoder序列之间做了一个attention。 具体什么是attention：比如输入是一个序列“我要吃饭”经过一个双向的rnn，对每个时刻正向和反向进行一个拼接，拿到每个时刻对应的emb">
+<meta name="twitter:image" content="https://i.imgur.com/3pizv2X.png">
 
 
 
@@ -119,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/10/08/暑假笔记/2019-7-12/">
+  <link rel="canonical" href="http://yoursite.com/2019/10/17/transformer/transformer的encoder部分/">
 
 
 
 
 
-  <title>2019-7-12 | 丑小鸭的栖息地</title>
+  <title>transformer的encoder部分 | 丑小鸭的栖息地</title>
   
 
 
@@ -242,7 +246,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/08/暑假笔记/2019-7-12/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/17/transformer/transformer的encoder部分/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chengxiaoyun">
@@ -259,7 +263,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">2019-7-12</h1>
+          <h1 class="post-title" itemprop="name headline">transformer的encoder部分</h1>
         
 
         <div class="post-meta">
@@ -271,8 +275,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-08T11:46:49+08:00">
-                2019-10-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-17T11:40:52+08:00">
+                2019-10-17
               </time>
             
 
@@ -294,8 +298,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/暑假培训/" itemprop="url" rel="index">
-                    <span itemprop="name">暑假培训</span>
+                  <a href="/categories/transforme/" itemprop="url" rel="index">
+                    <span itemprop="name">transforme</span>
                   </a>
                 </span>
 
@@ -331,13 +335,25 @@
       
 
       
-        <p>【一】黄洪：字符串转换为id，word embedding。<br>预训练的词向量用于embedding。<br>映射：word对应一个id，一个id对应一个词向量。<br>首先预训练出一个词对应向量的词表。<br>然后embedding，pytorch里面。<br>写代码写代码</p>
-<p>读取文件，变成string，vocab把word变成数字编号（连续有上界）。<br>Embedding矩阵可以随机初始化；也可以通过外面的词向量预训练得到。<br>【二】杨林：预训练得到词向量（语料库）Embedding怎么来的。<br>fastText提供了集中训练词向量的模型。Fasttext包含了Word2vec。<br>Skipgram模型：找到一个词的上下文信息，也就是语义信息。<br>官方文档参数解释：mincount（规定一个词出现的最小次数，只有达到这个数值的词才可以归到语料库里面）wordNgrams（就是把词比如2gram就是随机把一句话的两个词进行组合。3gram就是随机3个词进行组合。）bucket（和哈希有关系，加快训练查找什么的）minn maxn（规避oov问题）dim（训练的向量维度）lr（learning right在拟合的过程中，首先要在损失函数上面选定一个点，目标是逼近最低点，lr就是长度，每次逼近时移动的长度）loss（损失函数）ws（context window就是怎么定义上下文）epoch（训练多少轮）neg（一般选5）pretrainvector是目标。</p>
-<p>【三】吴林志<br>神经网络，首先将输入节点做一个线性或非线性变化，然后激活函数，输出。Y=g(wx+b)。<br>函数就是映射，假设有一个函数f(“cat”)=猫。<br>深度学习最基本的运算就是矩阵。<br>常见激活函数tanh，symoid，relu（公式下去了解）。<br>n多个节点的话：<br>如果每个节点和下一个节点都有连接，就是输入层、隐层、输出层。<br>不全连接，只是部分连接，参数很多，这就是卷积网络（局部连接，权值共享）<br>卷积网络：卷积核（就是输入序列取多少个节点，窗口大小，）<br>卷积操作：加权求和，随着窗口移动对应位置相乘，然后进行卷积结果拼接。</p>
-<p>通过窗口局部卷积，卷积一般都是向上取整，填充为了保证输入输出一致。卷积核固定情况下，通过pad做伸缩，二维里面就是保证输出形状基本不变，同时信息提取的更充分。<br>池化层：跟卷积操作一样，不一样的就是对卷积的结果进行处理，一般都是取最大值或者取平均值。<br>经典的卷积：先做一个卷积层，然后做一个线性变化relu（假如卷积信息有效就保留，无用就筛选），最后经过一个池化层（池化层看情况加，大多数情感分析都加池化层。对图像来说，池化目的就是从一堆特征选出一个更好的特征。对于文本来说池化就是得出一个固定的值）。</p>
-<p>加激活函数是为了让模型非线性化。不加的话加再多层也只是个线性组合。</p>
-<p>总的一个设计思路：<br>1.面向对象、模块化<br>2.设计过程，增量开发<br>3.从整体到局部</p>
-<p>Python pytest单元测试：<br>1.py文件以testXXX命名<br>2.方法名也是testXXX</p>
+        <p>6个encoder结构相同，参数不同。<br>self-attention：两个相同序列直接的atention。<br>两个不同序列之间的atteion就是一个标准的attention。</p>
+<p>decodee部分：对ecoder和decoder序列之间做了一个attention。</p>
+<p>具体什么是attention：比如输入是一个序列“我要吃饭”经过一个双向的rnn，对每个时刻正向和反向进行一个拼接，拿到每个时刻对应的embedding向量，以前的话只拿最后一个时刻和上一个时刻的隐层状态共同预测这个时刻。<br>attention考虑所有时刻<br>attetion是根据你给的信息去查之前的所有信息。查询引擎对每个时刻都算一下相似度，做一下归一化，做一下加权，拿到加权平均的值，然后去预测下一个。重点是权重，可以通过点乘。</p>
+<p>atention（Q,K,V）<br>怎么理解Q K V，就比如网页，Q是要查的词 K是你的url地址，V是网页的内容。<br>对应网络，Q是上一个时刻的输出，要查的词，在整个序列里查 K是当前时刻对应的编码，双向lstm隐状态的拼接， V也是隐状态的拼接，K V是一样的。<br>先算Q K的相似度，做一下softmax，再对V进行加权求和，就能拿到attention的值。</p>
+<p>self-attention的Q K V来自同一个序列。</p>
+<p>每一个时刻对应的特征是定长的。</p>
+<p>self-attention的计算：</p>
+<p>（具体的例子，序列就有两个词：thinking，machines）<br><img src="https://i.imgur.com/3pizv2X.png" alt><br>Q是x1<em>wq就是Q，也就是进行了一个线性变化。（1，4）</em>（4，3）得到（1，3）的矩阵。K v 也是这样来的。w（q，k，v）最开始就是随机初始化的，再后来不断训练就得到好的w。</p>
+<p>计算self-attention：<br><img src="https://i.imgur.com/9J9RxGD.png" alt><br>首先计算q和k的相似度。<br>先计算x1对应的所有的向量，要通过q1去查，q1怎么查呢，通过和k1和k2进行比较。q1和k1进行相乘，q1和k2进行相乘，因为序列是两个词，每个词都会对应一个value，一个k，所以要让所有k和q1相乘。乘完了之后进行根号或者除法，然后进行softmax，softmax就是为了变成一个概率值，就是相加等于一。也就是图中的0.88+0.12=1<br>然后进行加权求和，softmax已经求出了权重，也就是说q1和第一个时刻thinking对应的权重是0.88，和第二个时刻machine对应的权重是0.12。</p>
+<p>接着加权求和，权重和每个时刻相乘然后相加 0.88×v1+0.12×v2=z1。</p>
+<p>也就是说想拿到第一个时刻的值，就是拿第一个时刻对应的q和所有时刻的k进行一下相乘经过softmax得到权重，然后拿着权重和每个时刻的v进行相乘后求和，拿到所有的信息进行一下累计和，就能拿到z1。<br>q2同理。</p>
+<p>可能有多个attention，每个attention关注点不一样，一个x乘多个wq生成多个q，这就是muli-head attention。多头就能获取到多个信息。</p>
+<p>Encoder的主要工作：</p>
+<p>将输入的序列，经过attention拿到z1，z2，…self-attention拿到每个时刻是等长的，然后经过一个全连接网络（feed forward），就是对每一个时刻连接，每个时刻对应网络拿到的参数是一样的，拿到参数可以输出每个时刻的序列。</p>
+<p>transformer的encoder输入的是序列，输出的也是序列，就是将拿到的序列学到了更好的方法。将序列累加就能得到第二个encoder。依次。</p>
+<p>每个时刻（每个单词）都要经过全连接网络，参数是共享的。</p>
+<p>原始论文加了一个残差网络：</p>
+<p><img src="https://i.imgur.com/X7icyeS.png" alt></p>
+<p>layernorml是一种归一化的方法，保证梯度有效的学习。</p>
 
       
     </div>
@@ -362,8 +378,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/08/暑假笔记/2019-7-11/" rel="next" title="2019-7-11">
-                <i class="fa fa-chevron-left"></i> 2019-7-11
+              <a href="/2019/10/17/实验记录/重新生成type3语料进行实验/" rel="next" title="重新生成type3语料进行实验">
+                <i class="fa fa-chevron-left"></i> 重新生成type3语料进行实验
               </a>
             
           </div>
@@ -371,10 +387,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/08/暑假笔记/2019-7-15/" rel="prev" title="2019-7-15">
-                2019-7-15 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
