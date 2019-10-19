@@ -239,6 +239,149 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/19/实验记录/P值和Recall值/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chengxiaoyun">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="丑小鸭的栖息地">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/19/实验记录/P值和Recall值/" itemprop="url">P值和Recall值</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-19T19:15:26+08:00">
+                2019-10-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/实验记录/" itemprop="url" rel="index">
+                    <span itemprop="name">实验记录</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="https://img-blog.csdnimg.cn/20191019191455789.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDA4NjczNQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>就比如我们的这组实验，其中clone是type1-5相加，没有把type6计算在内。p值说明是 （你查出来正确的/你总共查出来的），recall是 （你查出来正确的/总共正确的），noclone的recall低说明没有把全部的noclone检测出来，那没有检测出的那部分noclone被我们误判为了clone，所以在clone的prec值就会降低，因为我们查找的clone里面有很大一部分是noclone<br><img src="https://img-blog.csdnimg.cn/20191019191511990.png" alt="在这里插入图片描述"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/17/transformer/transformer的encoder部分/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -492,15 +635,9 @@
       
         
           
-            <p>存在的问题：<br>之前的论文中提到我们自动生成的语料在MT3上效果比不上人工标注的，我们给出的解释是MT3的相似度在0.5-0.7之间，我们通过exchange和insert block块相似度没有控制。</p>
-<p>初步解决：</p>
-<p>（1）限制相似度在0.5-0.7之间</p>
-<p>①限制exchange的type3就是通过（L1+L3+L5）/(L1+L2+L3+L4+L5)在0.5-0.7中间，也就是没有变化的代码除以原来代码长度。</p>
-<p>②限制插入block块的type3同理，就是（原来代码长度）/（block块长度+原来代码长度）。但是发现存在问题，就是我们的block块平均在1-10之间，但是我们的代码行数都很大，20的和200行的都有，所以得先重新生成block块。</p>
-<p>重新生成的block块长度在12-30之间（我是按照平均代码行数30计算的，没有百分百的合理，但是足够生成我们想要的数据集）。</p>
-<p>（2）重新跑网络</p>
-<p>在跑网络的时候发现效果很不好，然后发现还是自动生成的数据集有问题。<br>在杨林的代码generate-train-clone中type1的生成是通过把生成的type3里面不重复的函数拿出来生成type1。</p>
-<p>这样可能存在的问题就是，我再type3生成时依赖的是高毅学长的ant3_t3_bench.csv，依次读取这里面的函数，针对每个函数进行exchange、insert操作之后与它本身结合成一对。 但是ant3_t3_bench.csv这里面会有重复的函数，虽然不影响type3的生成（因为即使对同一个函数做两次exchange操作结果一样的概率很低很低），但是依赖这些type3的函数再次生成type1除去重复的函数，数据量就不好控制了。</p>
+            <p>重新生成10000对MT3的数据<br>存在的问题：</p>
+<p>之前的论文中提到我们自动生成的语料在MT3上效果比不上人工标注的，我们给出的解释是MT3的相似度在0.5-0.7之间，我们通过exchange和insert block块相似度没有控制。<br>初步解决：<br>（1）限制相似度在0.5-0.7之间<br>①限制exchange的type3就是通过（L1+L3+L5）/(L1+L2+L3+L4+L5)在0.5-0.7中间，也就是没有变化的代码除以原来代码长度。<br>②限制插入block块的type3同理，就是（原来代码长度）/（block块长度+原来代码长度）。但是发现存在问题，就是我们的block块平均在1-10之间，但是我们的代码行数都很大，20的和200行的都有，所以得先重新生成block块。<br>重新生成的block块长度在12-30之间（我是按照平均代码行数30计算的，没有百分百的合理，但是足够生成我们想要的数据集）。<br>（2）重新跑网络<br>在跑网络的时候发现效果很不好，然后发现还是自动生成的数据集有问题。<br>在杨林的代码generate-train-clone中type1的生成是通过把生成的type3里面不重复的函数拿出来生成type1。<br>这样可能存在的问题就是，我再type3生成时依赖的是高毅学长的ant3_t3_bench.csv，依次读取这里面的函数，针对每个函数进行exchange、insert操作之后与它本身结合成一对。 但是ant3_t3_bench.csv这里面会有重复的函数，虽然不影响type3的生成（因为即使对同一个函数做两次exchange操作结果一样的概率很低很低），但是依赖这些type3的函数再次生成type1除去重复的函数，数据量就不好控制了。<br>然后修改了一下代码，重新生成了10000对的type3数据，都限制在0.5-0.7中间，同时根据这10000对生成10000的type1、2，no-clone还是根据原来的代码生成了10000对。这样重新组成了30000的数据集，再和我们原来的数据集合并，重新跑网络。<br>（3）结果分析<br>最后的结果见文件“合并-MT3-Test”，可以看到type3、4、5都有明显的提升，说明我们控制type3的相似度是有效果的。至于准确率下降，可能是因为我们合并的两组数据的no-clones是一样的，也就是有20000重复的no-clones数据集，所以才会P下降那么多。</p>
+<p>接下来就要再生成10000不同的no-clones再次进行实验。<br>（4）将来工作<br>如果MT3的效果好的话，就可以按照一样的思路来控制VT3、ST3、WT3的生成。首先把自动生成的数据集的质量提高上去，然后再跑transformer。</p>
 
           
         
@@ -1587,154 +1724,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/08/暑假笔记/2019-7-12/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chengxiaoyun">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/head.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="丑小鸭的栖息地">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/08/暑假笔记/2019-7-12/" itemprop="url">2019-7-12</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-08T11:46:49+08:00">
-                2019-10-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/暑假培训/" itemprop="url" rel="index">
-                    <span itemprop="name">暑假培训</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>【一】黄洪：字符串转换为id，word embedding。<br>预训练的词向量用于embedding。<br>映射：word对应一个id，一个id对应一个词向量。<br>首先预训练出一个词对应向量的词表。<br>然后embedding，pytorch里面。<br>写代码写代码</p>
-<p>读取文件，变成string，vocab把word变成数字编号（连续有上界）。<br>Embedding矩阵可以随机初始化；也可以通过外面的词向量预训练得到。<br>【二】杨林：预训练得到词向量（语料库）Embedding怎么来的。<br>fastText提供了集中训练词向量的模型。Fasttext包含了Word2vec。<br>Skipgram模型：找到一个词的上下文信息，也就是语义信息。<br>官方文档参数解释：mincount（规定一个词出现的最小次数，只有达到这个数值的词才可以归到语料库里面）wordNgrams（就是把词比如2gram就是随机把一句话的两个词进行组合。3gram就是随机3个词进行组合。）bucket（和哈希有关系，加快训练查找什么的）minn maxn（规避oov问题）dim（训练的向量维度）lr（learning right在拟合的过程中，首先要在损失函数上面选定一个点，目标是逼近最低点，lr就是长度，每次逼近时移动的长度）loss（损失函数）ws（context window就是怎么定义上下文）epoch（训练多少轮）neg（一般选5）pretrainvector是目标。</p>
-<p>【三】吴林志<br>神经网络，首先将输入节点做一个线性或非线性变化，然后激活函数，输出。Y=g(wx+b)。<br>函数就是映射，假设有一个函数f(“cat”)=猫。<br>深度学习最基本的运算就是矩阵。<br>常见激活函数tanh，symoid，relu（公式下去了解）。<br>n多个节点的话：<br>如果每个节点和下一个节点都有连接，就是输入层、隐层、输出层。<br>不全连接，只是部分连接，参数很多，这就是卷积网络（局部连接，权值共享）<br>卷积网络：卷积核（就是输入序列取多少个节点，窗口大小，）<br>卷积操作：加权求和，随着窗口移动对应位置相乘，然后进行卷积结果拼接。</p>
-<p>通过窗口局部卷积，卷积一般都是向上取整，填充为了保证输入输出一致。卷积核固定情况下，通过pad做伸缩，二维里面就是保证输出形状基本不变，同时信息提取的更充分。<br>池化层：跟卷积操作一样，不一样的就是对卷积的结果进行处理，一般都是取最大值或者取平均值。<br>经典的卷积：先做一个卷积层，然后做一个线性变化relu（假如卷积信息有效就保留，无用就筛选），最后经过一个池化层（池化层看情况加，大多数情感分析都加池化层。对图像来说，池化目的就是从一堆特征选出一个更好的特征。对于文本来说池化就是得出一个固定的值）。</p>
-<p>加激活函数是为了让模型非线性化。不加的话加再多层也只是个线性组合。</p>
-<p>总的一个设计思路：<br>1.面向对象、模块化<br>2.设计过程，增量开发<br>3.从整体到局部</p>
-<p>Python pytest单元测试：<br>1.py文件以testXXX命名<br>2.方法名也是testXXX</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1787,7 +1776,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="存在的问题：之前的论文中提到我们自动生成的语料在MT3上效果比不上人工标注的，我们给出的解释是MT3的相似度在0.5-0.7之间，我们通过exchange和insert block块相似度没有控制。 初步解决： （1）限制相似度在0.5-0.7之间 ①限制exchange的type3就是通过（L1+L3+L5）/(L1+L2+L3+L4+L5)在0.5-0.7中间，也就是没有变化的代码除以原来代码">
+<meta name="description" content="重新生成10000对MT3的数据存在的问题： 之前的论文中提到我们自动生成的语料在MT3上效果比不上人工标注的，我们给出的解释是MT3的相似度在0.5-0.7之间，我们通过exchange和insert block块相似度没有控制。初步解决：（1）限制相似度在0.5-0.7之间①限制exchange的type3就是通过（L1+L3+L5）/(L1+L2+L3+L4+L5)在0.5-0.7中间，也就">
 <meta property="og:type" content="article">
 <meta property="og:title" content="重新生成type3语料进行实验">
 <meta property="og:url" content="http://yoursite.com/2019/10/17/实验记录/重新生成type3语料进行实验/index.html">
 <meta property="og:site_name" content="丑小鸭的栖息地">
-<meta property="og:description" content="存在的问题：之前的论文中提到我们自动生成的语料在MT3上效果比不上人工标注的，我们给出的解释是MT3的相似度在0.5-0.7之间，我们通过exchange和insert block块相似度没有控制。 初步解决： （1）限制相似度在0.5-0.7之间 ①限制exchange的type3就是通过（L1+L3+L5）/(L1+L2+L3+L4+L5)在0.5-0.7中间，也就是没有变化的代码除以原来代码">
+<meta property="og:description" content="重新生成10000对MT3的数据存在的问题： 之前的论文中提到我们自动生成的语料在MT3上效果比不上人工标注的，我们给出的解释是MT3的相似度在0.5-0.7之间，我们通过exchange和insert block块相似度没有控制。初步解决：（1）限制相似度在0.5-0.7之间①限制exchange的type3就是通过（L1+L3+L5）/(L1+L2+L3+L4+L5)在0.5-0.7中间，也就">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-17T03:39:36.828Z">
+<meta property="og:updated_time" content="2019-10-18T05:47:36.580Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="重新生成type3语料进行实验">
-<meta name="twitter:description" content="存在的问题：之前的论文中提到我们自动生成的语料在MT3上效果比不上人工标注的，我们给出的解释是MT3的相似度在0.5-0.7之间，我们通过exchange和insert block块相似度没有控制。 初步解决： （1）限制相似度在0.5-0.7之间 ①限制exchange的type3就是通过（L1+L3+L5）/(L1+L2+L3+L4+L5)在0.5-0.7中间，也就是没有变化的代码除以原来代码">
+<meta name="twitter:description" content="重新生成10000对MT3的数据存在的问题： 之前的论文中提到我们自动生成的语料在MT3上效果比不上人工标注的，我们给出的解释是MT3的相似度在0.5-0.7之间，我们通过exchange和insert block块相似度没有控制。初步解决：（1）限制相似度在0.5-0.7之间①限制exchange的type3就是通过（L1+L3+L5）/(L1+L2+L3+L4+L5)在0.5-0.7中间，也就">
 
 
 
@@ -331,15 +331,9 @@
       
 
       
-        <p>存在的问题：<br>之前的论文中提到我们自动生成的语料在MT3上效果比不上人工标注的，我们给出的解释是MT3的相似度在0.5-0.7之间，我们通过exchange和insert block块相似度没有控制。</p>
-<p>初步解决：</p>
-<p>（1）限制相似度在0.5-0.7之间</p>
-<p>①限制exchange的type3就是通过（L1+L3+L5）/(L1+L2+L3+L4+L5)在0.5-0.7中间，也就是没有变化的代码除以原来代码长度。</p>
-<p>②限制插入block块的type3同理，就是（原来代码长度）/（block块长度+原来代码长度）。但是发现存在问题，就是我们的block块平均在1-10之间，但是我们的代码行数都很大，20的和200行的都有，所以得先重新生成block块。</p>
-<p>重新生成的block块长度在12-30之间（我是按照平均代码行数30计算的，没有百分百的合理，但是足够生成我们想要的数据集）。</p>
-<p>（2）重新跑网络</p>
-<p>在跑网络的时候发现效果很不好，然后发现还是自动生成的数据集有问题。<br>在杨林的代码generate-train-clone中type1的生成是通过把生成的type3里面不重复的函数拿出来生成type1。</p>
-<p>这样可能存在的问题就是，我再type3生成时依赖的是高毅学长的ant3_t3_bench.csv，依次读取这里面的函数，针对每个函数进行exchange、insert操作之后与它本身结合成一对。 但是ant3_t3_bench.csv这里面会有重复的函数，虽然不影响type3的生成（因为即使对同一个函数做两次exchange操作结果一样的概率很低很低），但是依赖这些type3的函数再次生成type1除去重复的函数，数据量就不好控制了。</p>
+        <p>重新生成10000对MT3的数据<br>存在的问题：</p>
+<p>之前的论文中提到我们自动生成的语料在MT3上效果比不上人工标注的，我们给出的解释是MT3的相似度在0.5-0.7之间，我们通过exchange和insert block块相似度没有控制。<br>初步解决：<br>（1）限制相似度在0.5-0.7之间<br>①限制exchange的type3就是通过（L1+L3+L5）/(L1+L2+L3+L4+L5)在0.5-0.7中间，也就是没有变化的代码除以原来代码长度。<br>②限制插入block块的type3同理，就是（原来代码长度）/（block块长度+原来代码长度）。但是发现存在问题，就是我们的block块平均在1-10之间，但是我们的代码行数都很大，20的和200行的都有，所以得先重新生成block块。<br>重新生成的block块长度在12-30之间（我是按照平均代码行数30计算的，没有百分百的合理，但是足够生成我们想要的数据集）。<br>（2）重新跑网络<br>在跑网络的时候发现效果很不好，然后发现还是自动生成的数据集有问题。<br>在杨林的代码generate-train-clone中type1的生成是通过把生成的type3里面不重复的函数拿出来生成type1。<br>这样可能存在的问题就是，我再type3生成时依赖的是高毅学长的ant3_t3_bench.csv，依次读取这里面的函数，针对每个函数进行exchange、insert操作之后与它本身结合成一对。 但是ant3_t3_bench.csv这里面会有重复的函数，虽然不影响type3的生成（因为即使对同一个函数做两次exchange操作结果一样的概率很低很低），但是依赖这些type3的函数再次生成type1除去重复的函数，数据量就不好控制了。<br>然后修改了一下代码，重新生成了10000对的type3数据，都限制在0.5-0.7中间，同时根据这10000对生成10000的type1、2，no-clone还是根据原来的代码生成了10000对。这样重新组成了30000的数据集，再和我们原来的数据集合并，重新跑网络。<br>（3）结果分析<br>最后的结果见文件“合并-MT3-Test”，可以看到type3、4、5都有明显的提升，说明我们控制type3的相似度是有效果的。至于准确率下降，可能是因为我们合并的两组数据的no-clones是一样的，也就是有20000重复的no-clones数据集，所以才会P下降那么多。</p>
+<p>接下来就要再生成10000不同的no-clones再次进行实验。<br>（4）将来工作<br>如果MT3的效果好的话，就可以按照一样的思路来控制VT3、ST3、WT3的生成。首先把自动生成的数据集的质量提高上去，然后再跑transformer。</p>
 
       
     </div>
@@ -446,7 +440,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
